@@ -23,7 +23,8 @@ class CategoryFactory extends Factory
             'icon' => $this->faker->imageUrl(64, 64),
             'active' => $this->faker->boolean,
             'featured_image' => "https://picsum.photos/1200/800?random=".rand(1, 99),
-            'user_id' => \App\Models\User::where('user_type_id', 1)->inRandomOrder()->first()->id,,
+            'user_id' => \App\Models\User::where('user_type_id', 1)->inRandomOrder()->first()->id,
         ];
+
     }
 }

@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('./scripts.js');
+import './sb-admin/sb-admin2';

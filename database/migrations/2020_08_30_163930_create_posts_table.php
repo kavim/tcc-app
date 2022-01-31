@@ -20,12 +20,12 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('subtitle');
             $table->text('description');
-            $table->longText('content');
+            $table->longText('body');
 
             $table->boolean('active')->default(0); //ativo = publicado
 
             $table->unsignedInteger('order')->nullable();
-            $table->foreignId('post_category_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->foreignId('user_id')->constrained();
 
             $table->softDeletes();

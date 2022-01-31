@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.web')
 @section('content')
+
+    <x-web.header></x-web.header>
+
     <!-- Description -->
     <div class="cards-1">
         <div class="container">

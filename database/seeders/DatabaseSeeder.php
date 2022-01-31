@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\PostSeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\UserTypeSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,10 +18,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // criando usuarios padrão
-        $this->call([UserTypeSeed::class, UserSeed::class]);
+        $this->call([UserTypeSeeder::class, UserSeeder::class]);
         // criando categorias padrão
-        $this->call([CategorySeed::class]);
+        $this->call([CategorySeeder::class]);
         // criando produtos padrão
-        $this->call([ProductSeed::class]);
+        $this->call([PostSeeder::class]);
     }
 }
