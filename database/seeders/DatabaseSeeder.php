@@ -18,10 +18,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // criando usuarios padrão
-        $this->call([UserTypeSeeder::class, UserSeeder::class]);
-        // criando categorias padrão
-        $this->call([CategorySeeder::class]);
-        // criando produtos padrão
-        $this->call([PostSeeder::class]);
+        $this->call([
+            UserTypeSeeder::class,
+            UserSeeder::class
+        ]);
+
+        // criando categorias e produtos padrão
+        $this->call([
+            CategorySeeder::class,
+            PostSeeder::class
+        ]);
+
+        $this->call([
+            AddressSeeder::class,
+        ]);
     }
 }

@@ -37,12 +37,16 @@ class UserSeeder extends Seeder
             'password' => \Hash::make('123senha123')
         ])->create();
 
-        \App\Models\User::factory([
+        $user = \App\Models\User::factory([
             'name' => 'regular Bro',
             'email' => 'regularuser@loscarpinchos.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 4,
             'password' => \Hash::make('123senha123')
+        ])->create();
+
+        $student = \App\Models\Student::factory([
+            'user_id' => $user->id,
         ])->create();
     }
 }

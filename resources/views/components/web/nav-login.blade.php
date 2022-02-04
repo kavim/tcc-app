@@ -11,7 +11,7 @@
         </a>
 
         <div class="dropdown-menu dropdown mr-md-2" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{route('regular.dashboard')}}">
+            <a class="dropdown-item" href="{{route('app.dashboard')}}">
                 {{ trans('sentences.profile') }}
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"
