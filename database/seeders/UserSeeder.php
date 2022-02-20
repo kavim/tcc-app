@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         \App\Models\User::factory([
             'name' => 'Ademir',
+            'slug_name' => 'ademir',
             'email' => 'ademir@loscarpinchos.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 1,
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
 
         \App\Models\User::factory([
             'name' => 'Editor',
+            'slug_name' => 'editor',
             'email' => 'editor@loscarpinchos.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 2,
@@ -31,6 +33,7 @@ class UserSeeder extends Seeder
 
         \App\Models\User::factory([
             'name' => 'Company',
+            'slug_name' => 'company',
             'email' => 'company@loscarpinchos.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 3,
@@ -39,6 +42,7 @@ class UserSeeder extends Seeder
 
         $user = \App\Models\User::factory([
             'name' => 'regular Bro',
+            'slug_name' => 'regular_bro',
             'email' => 'regularuser@loscarpinchos.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 4,
@@ -48,5 +52,13 @@ class UserSeeder extends Seeder
         $student = \App\Models\Student::factory([
             'user_id' => $user->id,
         ])->create();
+
+        $users = \App\Models\User::factory(50)->create();
+
+        $users->each(function ($user) {
+            \App\Models\Student::factory([
+                'user_id' => $user->id,
+            ])->create();
+        });
     }
 }

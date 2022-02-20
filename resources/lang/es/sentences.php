@@ -26,6 +26,7 @@ return [
     'academic_institution_email' => 'Email de la institución académica',
     'resume' => 'Resumen',
     'phone' => 'Teléfono',
+    'opem_to_work' => 'Buscando laburo',
 
     //localization
     'address' => 'Dirección',
@@ -35,4 +36,7 @@ return [
     'Street' => 'Calle',
     'select_a_country_first' => 'Seleccione un país primero',
     'select_a_country' => 'Seleccione un país',
+
+    //pages
+    'staudants_page' => 'Estudantes'
 ];
