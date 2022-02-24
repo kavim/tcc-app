@@ -16,12 +16,9 @@ class AddressSeeder extends Seeder
         $users = \App\Models\User::all();
 
         foreach ($users as $user) {
-
             $address = \App\Models\Address::factory()->create([
                 'user_id' => $user->id,
             ]);
-
-            $user->addresses()->associate($address);
         }
     }
 }
