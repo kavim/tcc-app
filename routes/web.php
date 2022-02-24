@@ -32,6 +32,15 @@ Route::get('{provider}/callback', [SocialiteLoginController::class, 'handleProvi
 Route::get('change-language/{lang}', [LanguageController::class, 'changeLanguage'])->name('change-language');
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/students', [HomeController::class, 'students'])->name('web.students');
+    // Route::get('/students/show/{slug_name}', [HomeController::class, 'studentsShow'])->name('web.students.show');
+    // uma forma mais simples de acessar o perfil do usuário
+    Route::get('/u/{slug_name}', [HomeController::class, 'studentsShow'])->name('web.students.show');
+
+});
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('app.dashboard');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -38,16 +39,21 @@ class Student extends Model
     // FUNCTIONS
     public function getAvatar(): string
     {
-        return $this->avatar ? asset('storage/' . $this->avatar) : asset('images/default-male-avatart.png');
+        return $this->avatar ? ImageHelper::checkIfIsALink($this->avatar) : asset('images/default-male-avatart.png');
     }
 
     public function getCover(): string
     {
-        return $this->cover ? asset('storage/' . $this->cover) : asset('images/default-cover-4.jpg');
+        return $this->cover ? ImageHelper::checkIfIsALink($this->cover) : asset('images/default-cover-4.jpg');
     }
 
     public function getBirthDateBr()
     {
         return $this->birth_date ? Carbon::parse($this->birth_date)->format('d/m/Y') : null;
+    }
+
+    public function getSocialNetworks(): array
+    {
+        return $this->social_networks ?: [];
     }
 }

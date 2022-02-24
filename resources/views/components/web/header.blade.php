@@ -8,7 +8,12 @@
                         <h1>ProBinacional</h1>
                         <p class="p-large">Uma Aplicação muito massa! Utilize para encontrar vagas de emprego
                             em empresas que postam vagas de emprego na plataforma!</p>
+                        <p class="p-large">
+                            Utilize para encontrar vagas de emprego
+                            em empresas que postam vagas de emprego na plataforma!.
+                        </p>
                         <a class="btn-solid-lg page-scroll" href="sign-up.html">SIGN UP</a>
+                        <a class="btn-outline-lg page-scroll" href="sign-up.html">SIGN IN</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6 col-xl-7">
