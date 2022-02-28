@@ -20,4 +20,24 @@ class ProfileController extends Controller
     {
 
     }
+
+    public function editCover()
+    {
+        return view('app.cover');
+    }
+
+    public function updateCover()
+    {
+        # code...
+    }
+
+    public function editResume()
+    {
+        return view('app.resume');
+    }
+
+    public function updateResume()
+    {
+        # code...
+    }
 }

@@ -49,7 +49,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/update', [ProfileController::class, 'index'])->name('app.profile.update');
 
         Route::get('/avatar/edit/', [ProfileController::class, 'editAvatar'])->name('app.profile.edit.avatar');
-        Route::get('/avatar/update/', [ProfileController::class, 'updateAvatar'])->name('app.profile.update.avatar');
+        Route::post('/avatar/update/', [ProfileController::class, 'updateAvatar'])->name('app.profile.update.avatar');
+        Route::get('/cover/edit/', [ProfileController::class, 'editCover'])->name('app.profile.edit.cover');
+        Route::post('/cover/update/', [ProfileController::class, 'updateCover'])->name('app.profile.update.cover');
+        Route::get('/resume/edit/', [ProfileController::class, 'editResume'])->name('app.profile.edit.resume');
+        Route::post('/resume/update/', [ProfileController::class, 'updateResume'])->name('app.profile.update.resume');
 
     });
 });

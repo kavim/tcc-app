@@ -39,35 +39,40 @@
                                     <label for="name">{{ trans('sentences.name') }}</label>
                                     <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ auth()->user()->name }}">
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
                                     <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ auth()->user()->email }}">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="enrollment">{{ trans('sentences.enrollment') }}</label>
-                                <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="bio">{{ trans('sentences.bio') }}</label>
+                                    <input name="bio" type="text" class="form-control" id="bio" placeholder="{{ trans('sentences.bio_placeholder') }}" maxlength="200">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="enrollment">{{ trans('sentences.enrollment') }}</label>
+                                    <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">{{ trans('sentences.phone') }}</label>
-                                <input name="text" type="text" class="form-control" id="phone" placeholder="(00) 00000000">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="phone">{{ trans('sentences.phone') }}</label>
+                                    <input name="text" type="text" class="form-control" id="phone" placeholder="(00) 00000000">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="document">{{ trans('sentences.document') }}</label>
+                                    <input name="text" type="text" class="form-control" id="document" placeholder="000.000.000-00">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="birth_date">{{ trans('sentences.birth_date') }}</label>
+                                    <input type="text"
+                                        class="form-control"
+                                        id="datepicker"
+                                        value="{{ auth()->user()->student->getBirthDateBr() ?? '' }}"
+                                        name="birth_date"
+                                        min="2021-09-01" max="2022-12-31">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="document">{{ trans('sentences.document') }}</label>
-                                <input name="text" type="text" class="form-control" id="document" placeholder="000.000.000-00">
-                            </div>
-                            <div class="form-group">
-                                <label for="birth_date">{{ trans('sentences.birth_date') }}</label>
-                                <input type="text"
-                                    class="form-control"
-                                    id="datepicker"
-                                    value="{{ auth()->user()->student->getBirthDateBr() ?? '' }}"
-                                    name="birth_date"
-                                    min="2021-09-01" max="2022-12-31">
-                            </div>
-
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>

@@ -27,6 +27,9 @@ return [
     'resume' => 'Resumen',
     'phone' => 'Teléfono',
     'opem_to_work' => 'Buscando laburo',
+    'bio' => 'Biografía',
+    'bio_placeholder' => 'Escribe una pequeña biografía sobre ti',
+    'resume' => 'Resumen',
 
     //localization
     'address' => 'Dirección',

@@ -16,6 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
 
+            $table->text('bio')->nullable(); // short bio do viviente
             $table->text('avatar')->nullable(); // número de matricula
             $table->text('cover')->nullable(); // nome completo
             $table->string('enrollment')->nullable()->unique(); // inscripción, matricula
