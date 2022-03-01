@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('subtitle');
             $table->text('description');
             $table->longText('body');
+            $table->text('featured_image');
 
             $table->boolean('active')->default(0); //ativo = publicado
 

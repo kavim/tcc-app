@@ -41,5 +41,6 @@ return [
     'select_a_country' => 'Seleccione un país',
 
     //pages
-    'staudants_page' => 'Estudantes'
+    'staudants_page' => 'Estudantes',
+    'jobs_page' => 'Trabajos',
 ];

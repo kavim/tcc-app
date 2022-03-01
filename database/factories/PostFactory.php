@@ -25,6 +25,7 @@ class PostFactory extends Factory
             'user_id' => \App\Models\User::where('user_type_id', 1)->inRandomOrder()->first()->id,
             'active' => $this->faker->boolean,
             'order' => $this->faker->numberBetween(1, 100),
+            'featured_image' => "https://picsum.photos/1200/800?random=".rand(1, 99),
         ];
     }
 }

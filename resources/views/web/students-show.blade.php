@@ -1,18 +1,8 @@
-@extends('layouts.web')
+@extends('layouts.app')
 @section('content')
-
-    <!-- Header -->
-    <header id="header" class="avatar-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    {{-- <h1>{{ trans('sentences.staudants_page') }}</h1> --}}
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
-
+    <!-- Masthead-->
+    <header class="masthead avatar-header">
+    </header>
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -30,7 +20,12 @@
                     </div>
                     <div class="col-6 d-flex justify-content-end align-items-center">
                         @if ($user->student->open_to_work)
-                            <span class="badge badge-success p-2"> {{ trans('sentences.opem_to_work') }} </span>
+                            <button type="button" class="btn btn-primary position-relative">
+                                Profile
+                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                    <span class="visually-hidden">{{ trans('sentences.opem_to_work') }}</span>
+                                </span>
+                            </button>
                         @endif
                     </div>
                 </div>
@@ -54,6 +49,5 @@
             background-size: cover;
             background-attachment: scroll;
         }
-
     </style>
 @endsection

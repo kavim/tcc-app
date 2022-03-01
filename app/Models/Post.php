@@ -19,5 +19,6 @@ class Post extends Model
         'user_id',
         'active',
         'order',
+        'featured_image'
     ];
 }
