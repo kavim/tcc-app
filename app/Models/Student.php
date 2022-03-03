@@ -23,7 +23,8 @@ class Student extends Model
         'academic_institution_data',
         'social_networks',
         'resume',
-        'user_id'
+        'user_id',
+        'bio'
     ];
 
     protected $casts = [

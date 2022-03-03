@@ -10,6 +10,7 @@
             </div>
             <div class="col-12 my-3 text-center">
                 <h2>{{ $user->name }}</h2>
+                <p>{{ $user->student->bio }}</p>
             </div>
             <div class="col-12 my-3">
                 <div class="row">
