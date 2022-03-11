@@ -41,49 +41,12 @@
 </head>
 
 <body>
-    <x-app.navbar.solid-nav></x-app.navbar.solid-nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-6 p-3 d-flex">
-                <div style="background-image: url('{{ Auth::user()->student->getAvatar() }}');" class="avatar-chico"></div>
-                <h3>{{ Auth::user()->name }}</h3>
-            </div>
-            <div class="col-6 p-3">
-                <button class="btn btn-outline-primary">{{ trans('sentences.see_profile') }}</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <x-app.alerts></x-app.alerts>
-        </div>
-
-        <div class="row">
-            <div class="col-3">
-                <div class="list-group">
-                    <a href="{{ route('app.dashboard') }}" class="list-group-item list-group-item-action @if(Route::is('app.dashboard')) active @endif" aria-current="true">
-                        Dashboard
-                    </a>
-                    <a href="{{ route('app.profile.edit') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit')) active @endif">{{ trans('sentences.profile') }}</a>
-                    <a href="{{ route('app.profile.edit.avatar') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.avatar')) active @endif">{{ trans('sentences.avatar') }}</a>
-                    <a href="{{ route('app.profile.edit.cover') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.cover')) active @endif">{{ trans('sentences.cover') }}</a>
-                    <a href="{{ route('app.profile.edit.resume') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.resume')) active @endif">{{ trans('sentences.resume') }}</a>
-                    {{-- <a class="list-group-item list-group-item-action disabled">A disabled link item</a> --}}
-                  </div>
-            </div>
-            <div class="col-9">
-                @yield('content')
-
-            </div>
-        </div>
-    </div>
+    @yield('content')
 
     <x-app.footer/>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
-    @yield('scripts')
 </body>
 
 </html>

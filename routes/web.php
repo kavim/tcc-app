@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SocialiteLoginController;
@@ -37,14 +36,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('app.dashboard');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::prefix('profile')->group(function () {
-        Route::get('/edit', [ProfileController::class, 'index'])->name('app.profile.edit');
-        Route::post('/update', [ProfileController::class, 'index'])->name('app.profile.update');
-        Route::get('/avatar/edit/', [ProfileController::class, 'editAvatar'])->name('app.profile.edit.avatar');
-        Route::post('/avatar/update/', [ProfileController::class, 'updateAvatar'])->name('app.profile.update.avatar');
-        Route::get('/cover/edit/', [ProfileController::class, 'editCover'])->name('app.profile.edit.cover');
-        Route::post('/cover/update/', [ProfileController::class, 'updateCover'])->name('app.profile.update.cover');
-        Route::get('/resume/edit/', [ProfileController::class, 'editResume'])->name('app.profile.edit.resume');
-        Route::post('/resume/update/', [ProfileController::class, 'updateResume'])->name('app.profile.update.resume');
+        Route::get('/edit', [DashboardController::class, 'editProfile'])->name('app.profile.edit');
+        Route::post('/update', [DashboardController::class, 'updateProfile'])->name('app.profile.update');
+        Route::get('/avatar/edit/', [DashboardController::class, 'editAvatar'])->name('app.profile.edit.avatar');
+        Route::post('/avatar/update/', [DashboardController::class, 'updateAvatar'])->name('app.profile.update.avatar');
+        Route::get('/cover/edit/', [DashboardController::class, 'editCover'])->name('app.profile.edit.cover');
+        Route::post('/cover/update/', [DashboardController::class, 'updateCover'])->name('app.profile.update.cover');
+        Route::get('/resume/edit/', [DashboardController::class, 'editResume'])->name('app.profile.edit.resume');
+        Route::post('/resume/update/', [DashboardController::class, 'updateResume'])->name('app.profile.update.resume');
 
     });
 });

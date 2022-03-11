@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::get();
 
-        return view('posts.index', compact('posts'));
+        return view('web.posts.index', compact('posts'));
     }
 
     /**
@@ -50,7 +50,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
-        return view('posts.show', compact('post'));
+        return view('web.posts.show', compact('post'));
     }
 
     /**

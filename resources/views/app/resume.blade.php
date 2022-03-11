@@ -14,9 +14,13 @@
 
                             @csrf
 
-                            <textarea id="summernote" name="resume"></textarea>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="summernote" name="resume">
+                                    {{ old('resume') ? $resume : $resume }}
+                                </textarea>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button  type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>
                 </div>
@@ -27,16 +31,27 @@
 @endsection
 
 @section('styles')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
-    <script>
-        $('#summernote').summernote({
-          placeholder: 'Hello Bootstrap 4',
-          tabsize: 2,
-          height: 100
-        });
-      </script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+  $('#summernote').summernote({
+    placeholder: 'Hello stand alone ui',
+    tabsize: 2,
+    height: 400,
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['table', ['table']],
+      ['insert', ['link', 'picture', 'video']],
+      ['view', ['fullscreen', 'codeview', 'help']]
+    ]
+  });
+</script>
 @endsection

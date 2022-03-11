@@ -1,7 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.web')
 @section('content')
 
-<x-web.header></x-web.header>
+<x-app.navbar.nav></x-app.navbar.nav>
+
+<x-app.header></x-app.header>
 
 <!-- Services-->
 <section class="page-section" id="services">

@@ -17,6 +17,7 @@ return [
     'confirm_password' => 'Confirmar contraseña',
     'language' => 'Idioma',
     'avatar' => 'Avatar',
+    'cover' => 'Partada',
     'profile' => 'Perfil',
     'dashboard' => 'Dashboard',
     'home' => 'Inicio',
@@ -30,6 +31,7 @@ return [
     'bio' => 'Biografía',
     'bio_placeholder' => 'Escribe una pequeña biografía sobre ti',
     'resume' => 'Resumen',
+    'see_profile' => 'Ver perfil',
 
     //localization
     'address' => 'Dirección',

@@ -16,6 +16,6 @@ class ImageHelper
             return $src;
         }
 
-        return asset('/storage/' . $src);
+        return asset('storage/' . $src);
     }
 }
