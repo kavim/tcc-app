@@ -13,7 +13,7 @@ class UserTypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = ["admin", "editor", "place-owner", "regular-user"];
+        $types = ["admin", "editor", "company", "regular-user"];
 
         foreach ($types as $t) {
             \App\Models\UserType::create(['name'=>$t]);

@@ -19,6 +19,7 @@ class CreateCourseStudentTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->foreignId('course_id')->constrained();
             $table->boolean('completed')->default(false);
+            $table->timestamp('started_at')->nullable();
             $table->timestamp('completed_at')->nullable();
 
             $table->timestamps();

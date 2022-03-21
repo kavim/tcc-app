@@ -3,11 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class IsAdmin
-{
-    class IsAdmin
 {
     /**
      * @var Guard
@@ -33,5 +32,4 @@ class IsAdmin
 
         return redirect('/home')->with('error',trans('sentences.access_denied'));
     }
-}
 }

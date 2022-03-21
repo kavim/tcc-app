@@ -37,6 +37,11 @@ class Student extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function courses(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->BelongsToMany(Course::class)->withPivot('is_completed', 'completed_at', 'started_at');
+    }
+
     // FUNCTIONS
     public function getAvatar(): string
     {

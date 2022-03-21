@@ -31,7 +31,7 @@
 
     <div id="wrapper">
 
-        @include('layouts.admin.adminsidebar')
+        <x-admin.sidebar />
 
         <div id="content-wrapper" class="d-flex flex-column">
 

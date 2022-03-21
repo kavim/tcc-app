@@ -36,31 +36,31 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">{{ trans('sentences.name') }}</label>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ auth()->user()->name }}">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ $user->email }}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail4">Email</label>
-                                    <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ auth()->user()->email }}">
+                                    <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="bio">{{ trans('sentences.bio') }}</label>
-                                    <input name="bio" type="text" class="form-control" id="bio" placeholder="{{ trans('sentences.bio_placeholder') }}" maxlength="200">
+                                    <input name="bio" type="text" class="form-control" id="bio" placeholder="{{ trans('sentences.bio_placeholder') }}" maxlength="200" value="@if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="enrollment">{{ trans('sentences.enrollment') }}</label>
-                                    <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123">
+                                    <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123" value="@if(old('document')) {{old('enrollment')}} @else {{$user->student->enrollment}} @endif">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="phone">{{ trans('sentences.phone') }}</label>
-                                    <input name="text" type="text" class="form-control" id="phone" placeholder="(00) 00000000">
+                                    <input name="phone" type="text" class="form-control" id="phone" placeholder="(00) 00000000" value="@if(old('phone')) {{old('phone')}} @else {{$user->student->phone}} @endif">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="document">{{ trans('sentences.document') }}</label>
-                                    <input name="text" type="text" class="form-control" id="document" placeholder="000.000.000-00">
+                                    <input name="document" type="text" class="form-control" id="document" placeholder="000.000.000-00" value="@if(old('document')) {{old('document')}} @else {{$user->student->document}} @endif">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="birth_date">{{ trans('sentences.birth_date') }}</label>

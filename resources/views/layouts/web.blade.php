@@ -41,6 +41,8 @@
 </head>
 
 <body>
+
+    <x-app.navbar.nav></x-app.navbar.nav>
     @yield('content')
 
     <x-app.footer/>

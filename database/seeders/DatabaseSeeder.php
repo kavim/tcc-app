@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\PostSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\CourseSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\UserTypeSeeder;
 
@@ -17,6 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // criando cursos
+        $this->call(CourseSeeder::class);
+
         // criando usuarios padrão
         $this->call([
             UserTypeSeeder::class,

@@ -29,4 +29,9 @@ class HomeController extends Controller
 
         return view('web.students.students-show', compact('user'));
     }
+
+    public function for_companies()
+    {
+        return view('web.for_companies');
+    }
 }

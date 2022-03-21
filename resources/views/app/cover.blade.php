@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" enctype="multipart/form-data" id="image-upload-preview"
-                            action="{{ route('app.profile.edit.cover') }}">
+                            action="{{ route('app.profile.update.cover') }}">
 
                             <div class="row">
                                 <div class="col-md-12">

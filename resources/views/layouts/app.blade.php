@@ -50,7 +50,7 @@
                 <h3>{{ Auth::user()->name }}</h3>
             </div>
             <div class="col-6 p-3">
-                <button class="btn btn-outline-primary">{{ trans('sentences.see_profile') }}</button>
+                <a href="{{ route('students.show', Auth::user()->slug_name) }}" class="btn btn-outline-primary">{{ trans('sentences.see_profile') }}</a>
             </div>
         </div>
 
@@ -60,16 +60,7 @@
 
         <div class="row">
             <div class="col-3">
-                <div class="list-group">
-                    <a href="{{ route('app.dashboard') }}" class="list-group-item list-group-item-action @if(Route::is('app.dashboard')) active @endif" aria-current="true">
-                        Dashboard
-                    </a>
-                    <a href="{{ route('app.profile.edit') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit')) active @endif">{{ trans('sentences.profile') }}</a>
-                    <a href="{{ route('app.profile.edit.avatar') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.avatar')) active @endif">{{ trans('sentences.avatar') }}</a>
-                    <a href="{{ route('app.profile.edit.cover') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.cover')) active @endif">{{ trans('sentences.cover') }}</a>
-                    <a href="{{ route('app.profile.edit.resume') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.resume')) active @endif">{{ trans('sentences.resume') }}</a>
-                    {{-- <a class="list-group-item list-group-item-action disabled">A disabled link item</a> --}}
-                  </div>
+                <x-app.sidebar.links></x-app.sidebar.links>
             </div>
             <div class="col-9">
                 @yield('content')

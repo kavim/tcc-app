@@ -1,7 +1,9 @@
 <?php
 
 return [
+    //pages
     'welcome' => 'Bienvenido a probi!',
+    'for_companies' => 'Para empresas',
 
     'name' => 'Nombre',
     'email' => 'Email',
@@ -45,4 +47,9 @@ return [
     //pages
     'staudants_page' => 'Estudantes',
     'jobs_page' => 'Trabajos',
+
+    //studants sidebar
+    'course' => 'Curso',
+    'select_your_course' => 'Seleccione su curso',
+    'course_completed_at' => 'Curso completado en',
 ];

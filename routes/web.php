@@ -27,6 +27,7 @@ Route::get('socialitelogin/{provider}', [SocialiteLoginController::class, 'redir
 Route::get('{provider}/callback', [SocialiteLoginController::class, 'handleProviderCallback']);
 Route::get('change-language/{lang}', [LanguageController::class, 'changeLanguage'])->name('change-language');
 Route::get('/students', [HomeController::class, 'students'])->name('students');
+Route::get('/for_companies', [HomeController::class, 'for_companies'])->name('for_companies');
 // uma forma mais simples de acessar o perfil do usuário
 Route::get('/u/{slug_name}', [HomeController::class, 'studentsShow'])->name('students.show');
 Route::get('/post', [PostController::class, 'index'])->name('posts.index');
@@ -44,6 +45,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/cover/update/', [DashboardController::class, 'updateCover'])->name('app.profile.update.cover');
         Route::get('/resume/edit/', [DashboardController::class, 'editResume'])->name('app.profile.edit.resume');
         Route::post('/resume/update/', [DashboardController::class, 'updateResume'])->name('app.profile.update.resume');
+        Route::get('/course/edit/', [DashboardController::class, 'editCourse'])->name('app.profile.edit.course');
+        Route::post('/course/update/', [DashboardController::class, 'updateCourse'])->name('app.profile.update.course');
 
     });
 });
