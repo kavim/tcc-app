@@ -127,32 +127,58 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'Resumo atualizado com sucesso');
     }
 
+    public function editExperiences()
+    {
+        $experiences = Auth::user()->student->experiences;
+
+        return view('app.experiences', compact('experiences'));
+    }
+
+    public function updateExperiences(Request $request)
+    {
+        $validated = $request->validate([
+            'experiences' => 'required|max:9999',
+        ]);
+
+        $user = Auth::user();
+
+        $user->student->update($validated);
+
+        return redirect()->back()->with('success', 'Resumo atualizado com sucesso');
+    }
+
     public function editCourse()
     {
         $user = Auth::user();
         $courses = Course::get();
-        $current_course_id = Auth::user()->student->course_id;
-        $course_started_at = $user->student->course()->started_at;
-        $course_completed_at = $user->student->course()->completed_at;
 
-        dd($course_started_at);
+        $current_course_id = $user->student->course()->pivot->course_id;
+        $course_started_at = Carbon::parse($user->student->course()->pivot->started_at)->format('d/m/Y');
+        $course_completed_at = Carbon::parse($user->student->course()->pivot->completed_at)->format('d/m/Y');
+        $course_completed = $user->student->course()->pivot->completed;
 
-        return view('app.course', compact('courses', 'current_course_id'));
+        return view('app.course', compact('courses', 'current_course_id', 'course_started_at', 'course_completed_at', 'course_completed'));
     }
 
     public function updateCourse(Request $request)
     {
         dd($request->all());
-
         $validated = $request->validate([
-            'started_at' => 'required',
-            'created_at' => 'required',
-            'course_id' => 'required',
+            'course_completed_at' => 'date_format:d/m/Y|before:today|nullable',
+            'course_started_at' => 'date_format:d/m/Y',
+            'selected_course_id' => 'required',
         ]);
 
-        $user = Auth::user();
+        $student = Auth::user()->student;
 
-
+        $student->courses()->sync(
+            $request->input('selected_course_id'),
+            [
+                'completed' => $request->input('course_completed'),
+                'completed_at' => $request->input('course_completed') ? Carbon::createFromFormat('d/m/Y', $request->input('course_completed_at'))->format('Y-m-d') : null,
+                'started_at' => Carbon::createFromFormat('d/m/Y', $request->input('course_started_at'))->format('Y-m-d') ?? null,
+            ]
+        );
 
         return redirect()->back()->with('success', 'Atualizado com sucesso');
     }

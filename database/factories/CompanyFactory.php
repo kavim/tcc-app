@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StudentFactory extends Factory
+class CompanyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -13,17 +14,16 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
-        $faker = \Faker\Factory::create('pt_BR');
+        $name = $this->faker->name();
 
         return [
+            'name' => $name,
+            'slug' => $name,
+            'resume' => $this->faker->realText(rand(500, 1500)),
+            'bio' => $this->faker->realText(rand(100, 250)),
+            'phone' => $this->faker->phoneNumber,
             'avatar' => "https://picsum.photos/200/200?random=".rand(1, 99),
             'cover' => "https://picsum.photos/1200/400?random=".rand(1, 99),
-            'enrollment' => $this->faker->unique()->randomNumber(8),
-            'document' => $faker->cpf, // CPF
-            'registration_proof' => null,
-            'birth_date' => '2000-01-01',
-            'open_to_work' => true,
-            'academic_institution_email' => $this->faker->unique()->safeEmail(),
             'social_networks' => [
                 'website' => 'https://google.com',
                 'github' => 'https://github.com/torvalds',
@@ -32,8 +32,6 @@ class StudentFactory extends Factory
                 'twitter' => 'https://github.com/torvalds',
                 'instagram' => 'https://github.com/torvalds',
             ],
-            'resume' => $faker->realText(rand(500, 1500)),
-            'bio' => $faker->realText(rand(50, 100)),
         ];
     }
 }

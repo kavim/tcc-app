@@ -23,6 +23,7 @@ class Student extends Model
         'academic_institution_data',
         'social_networks',
         'resume',
+        'experiences',
         'user_id',
         'bio'
     ];
@@ -37,9 +38,14 @@ class Student extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function courses(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function courses(): \Illuminate\Database\Eloquent\Relations\belongsToMany
     {
-        return $this->BelongsToMany(Course::class)->withPivot('is_completed', 'completed_at', 'started_at');
+        return $this->belongsToMany(Course::class)->withPivot('completed', 'completed_at', 'started_at')->withTimestamps();
+    }
+
+    public function course()
+    {
+        return $this->courses()->latest()->first();
     }
 
     // FUNCTIONS

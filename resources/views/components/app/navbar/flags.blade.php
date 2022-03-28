@@ -5,11 +5,11 @@
     <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
         <li>
             <a class="dropdown-item" href="{!! route('change-language', 'es') !!}">
-            <img src="{{ asset('images/flags/uy.svg') }}" width="20"/> ES</a>
+            <img src="{{ asset('images/flags/uy.svg') }}" width="25"/> ES-UY</a>
         </li>
         <li>
             <a class="dropdown-item" href="{!! route('change-language', 'pt') !!}">
-            <img src="{{ asset('images/flags/br.svg') }}" width="20"/> PT-BR</a>
+            <img src="{{ asset('images/flags/br.svg') }}" width="25"/> PT-BR</a>
         </li>
     </ul>
 </li>

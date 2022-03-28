@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('featured_image');
 
             $table->boolean('active')->default(0); //ativo = publicado
+            $table->timestamp('published_at')->nullable(); //ativo = data de publicação, se for ativo, data de publicação não pode ser nula
 
             $table->unsignedInteger('order')->nullable();
             $table->foreignId('category_id')->constrained();

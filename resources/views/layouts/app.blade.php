@@ -45,12 +45,16 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-6 p-3 d-flex">
-                <div style="background-image: url('{{ Auth::user()->student->getAvatar() }}');" class="avatar-chico"></div>
-                <h3>{{ Auth::user()->name }}</h3>
-            </div>
-            <div class="col-6 p-3">
-                <a href="{{ route('students.show', Auth::user()->slug_name) }}" class="btn btn-outline-primary">{{ trans('sentences.see_profile') }}</a>
+            <div class="col-12 py-5">
+                <div class="d-flex align-items-center d-flex">
+                    <div class="ms-4">
+                        <div style="background-image: url('{{ Auth::user()->student->getAvatar() }}');" class="avatar-chico"></div></div>
+                        &nbsp;
+                        <h3>{{ Auth::user()->name }}</h3>
+                    <div class="ms-4">
+                        <a href="{{ route('students.show', Auth::user()->slug_name) }}" class="btn btn-outline-primary">{{ trans('sentences.see_profile') }}</a>
+                    </div>
+                </div>
             </div>
         </div>
 

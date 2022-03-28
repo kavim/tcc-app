@@ -12,9 +12,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 
 <script>
-    $( "#datepicker" ).datepicker({
-        format: "dd/mm/yyyy",
-        language: "pt-BR"
+    $(document).ready(function(){
+
+        $( ".formato_data" ).datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+
+        $('#switch').change(function(){
+            // alert('The switch is: ' + ($(this).is(':checked') ? 'ON' : 'OFF'));
+            if($(this).is(':checked')){
+                $('#course_completed_at').show('fast');
+            }else{
+                $('#course_completed_at').hide('fast');
+            }
+        });
     });
 </script>
 @endsection
@@ -29,17 +41,17 @@
                         <h6 class="m-0 font-weight-bold text-primary">Dados</h6>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('app.profile.update') }}" method="POST">
+                        <form action="{{ route('app.profile.update.course') }}" method="POST">
 
                             @csrf
 
                             <span class="mr-2">Estou formado</span>
                             <label class="switch">
-                                <input type="checkbox" class="success" id="switch" name="is_featured"
-                                    @if(isset($faq))
-                                        {{ old('is_featured') == 'on' || $faq->is_featured == 1 ? 'checked' : '' }}
+                                <input type="checkbox" class="success" id="switch" name="course_completed"
+                                    @if(isset($course_completed))
+                                        {{ old('course_completed') == 'on' || $course_completed == 1 ? 'checked' : '' }}
                                     @else
-                                        {{ old('is_featured') == 'on' ? 'checked' : '' }}
+                                        {{ old('course_completed') == 'on' ? 'checked' : '' }}
                                     @endif
                                 >
                                 <span class="slider round"></span>
@@ -48,26 +60,23 @@
                             <br>
 
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="birth_date">{{ trans('sentences.course_started_at') }}</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        id="datepicker"
-                                        value="{{ $course_started_at ?? '' }}"
-                                        name="birth_date"
-                                        min="2021-09-01" max="2022-12-31">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="birth_date">{{ trans('sentences.course_completed_at') }}</label>
-                                    <input type="text"
-                                        class="form-control"
-                                        id="datepicker"
-                                        value="{{ $course_completed_at ?? '' }}"
-                                        name="birth_date"
-                                        min="2021-09-01" max="2022-12-31">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="course_started_at">{{ trans('sentences.course_started_at') }}</label>
+                                        <input type="text"
+                                            class="form-control formato_data"
+                                            id="course_started_at"
+                                            value="{{ $course_started_at ?? '' }}"
+                                            name="course_started_at">
+                                    </div>
+                                    <div class="col" id="course_completed_at">
+                                        <label for="course_completed_at">{{ trans('sentences.course_completed_at') }}</label>
+                                        <input type="text"
+                                            class="form-control formato_data"
+                                            id="course_completed_at"
+                                            value="{{ $course_completed_at ?? '' }}"
+                                            name="course_completed_at">
+                                    </div>
                                 </div>
                             </div>
 

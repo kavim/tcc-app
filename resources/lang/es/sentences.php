@@ -34,6 +34,7 @@ return [
     'bio_placeholder' => 'Escribe una pequeña biografía sobre ti',
     'resume' => 'Resumen',
     'see_profile' => 'Ver perfil',
+    'discribe_here_your_experiences' => 'Describe aquí tus experiencias',
 
     //localization
     'address' => 'Dirección',
@@ -52,4 +53,20 @@ return [
     'course' => 'Curso',
     'select_your_course' => 'Seleccione su curso',
     'course_completed_at' => 'Curso completado en',
+    'course_started_at' => 'Curso iniciado en',
+    'experiences' => 'Experiencias',
+
+    //Compnie
+    'company_name' => 'Nombre de la empresa',
+    'company_email' => 'Email de la empresa',
+    'company_phone' => 'Teléfono de la empresa',
+    'web_site' => 'Página web',
+    'company_logo' => 'Logo de la empresa',
+    'company_details' => 'Detalles de la empresa',
+    'company_user' => 'Usuario responsable',
+    'company_user_email' => 'Email del usuario responsable',
+    'company_user_phone' => 'Teléfono del usuario responsable',
+    'field_of_activity' => 'Campo de actividad',
+    'trade_name' => 'Nombre comercial',
+    'company_email' => 'Email de la empresa',
 ];

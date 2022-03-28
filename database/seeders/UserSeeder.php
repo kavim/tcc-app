@@ -15,6 +15,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
+
         \App\Models\User::factory([
             'name' => 'Ademir',
             'slug_name' => 'ademir',
@@ -33,7 +35,7 @@ class UserSeeder extends Seeder
             'password' => \Hash::make('123senha123')
         ])->create();
 
-        \App\Models\User::factory([
+        $companies = \App\Models\User::factory([
             'name' => 'Company',
             'slug_name' => 'company',
             'email' => 'company@loscarpinchos.com',
@@ -55,6 +57,18 @@ class UserSeeder extends Seeder
             'user_id' => $user->id,
         ])->create();
 
+        $student->courses()->attach(
+            \App\Models\Course::inRandomOrder()->first()->id,
+            [
+                'completed' => $is_course_completed = $faker->boolean,
+                'completed_at' => $is_course_completed ? $faker->dateTimeBetween('-1 years', 'now') : null,
+                'started_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            ],
+            false
+        );
+
+        // criando varios usuarios para teste
+
         $users = \App\Models\User::factory(50)->create();
 
         $users->each(function ($user) {
@@ -63,35 +77,37 @@ class UserSeeder extends Seeder
             ])->create();
         });
 
-        $faker = \Faker\Factory::create();
+        echo "\n Start UserStudent relationship \n";
 
         foreach ($users as $key => $user) {
 
             $student = \App\Models\Student::where('user_id', $user->id)->first();
 
-            echo $student->id;
+            echo $student->id.", ";
 
             $student->courses()->attach(
                 \App\Models\Course::inRandomOrder()->first()->id,
                 [
                     'completed' => $is_course_completed = $faker->boolean,
                     'completed_at' => $is_course_completed ? $faker->dateTimeBetween('-1 years', 'now') : null,
-                    'started_at' => $is_course_completed ? $faker->dateTimeBetween('-2 years', '-1 years') : null,
+                    'started_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 ],
                 false
             );
         }
 
+        echo "\nfinished\n";
+        echo "\n Start UserCompany relationship \n";
 
-        // $user->each(function ($user) {
-        //     $user->student()->courses()->attach(
-        //         \App\Models\Course::inRandomOrder()->first()->id,
-        //         [
-        //             'is_course_completed' => $is_course_completed = $this->faker->boolean,
-        //             'course_completed_at' => $is_course_completed ? $this->faker->dateTimeBetween('-1 years', 'now') : null,
-        //             'course_started_at' => $is_course_completed ? $this->faker->dateTimeBetween('-2 years', '-1 years') : null,
-        //         ]
-        //     );
-        // });
+        $companies->each(function ($company) {
+
+            echo $company->id.", ";
+
+            $company = \App\Models\Company::factory([
+                'user_id' => $company->id
+            ])->create();
+        });
+
+        echo "\nfinished\n";
     }
 }

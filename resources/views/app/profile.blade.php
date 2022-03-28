@@ -33,36 +33,43 @@
 
                             @csrf
 
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
+                            <div class="row">
+                                <div class="col">
                                     <label for="name">{{ trans('sentences.name') }}</label>
                                     <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ $user->email }}">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="col">
                                     <label for="inputEmail4">Email</label>
                                     <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ $user->email }}">
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="bio">{{ trans('sentences.bio') }}</label>
-                                    <input name="bio" type="text" class="form-control" id="bio" placeholder="{{ trans('sentences.bio_placeholder') }}" maxlength="200" value="@if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif">
+
+                            <div class="row my-3">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <textarea name="bio" class="form-control" placeholder="{{ trans('sentences.bio_placeholder') }}" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <label for="floatingTextarea2">@if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif</label>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
                                     <label for="enrollment">{{ trans('sentences.enrollment') }}</label>
                                     <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123" value="@if(old('document')) {{old('enrollment')}} @else {{$user->student->enrollment}} @endif">
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="col">
                                     <label for="phone">{{ trans('sentences.phone') }}</label>
                                     <input name="phone" type="text" class="form-control" id="phone" placeholder="(00) 00000000" value="@if(old('phone')) {{old('phone')}} @else {{$user->student->phone}} @endif">
                                 </div>
-                                <div class="form-group col-md-4">
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
                                     <label for="document">{{ trans('sentences.document') }}</label>
                                     <input name="document" type="text" class="form-control" id="document" placeholder="000.000.000-00" value="@if(old('document')) {{old('document')}} @else {{$user->student->document}} @endif">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="col">
                                     <label for="birth_date">{{ trans('sentences.birth_date') }}</label>
                                     <input type="text"
                                         class="form-control"
@@ -72,7 +79,8 @@
                                         min="2021-09-01" max="2022-12-31">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+
+                            <button type="submit" class="btn btn-primary mt-3">Save</button>
                         </form>
                     </div>
                 </div>

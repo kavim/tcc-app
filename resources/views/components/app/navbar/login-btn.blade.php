@@ -9,7 +9,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
             <li>
-                <a class="dropdown-item" href="{!! route('change-language', 'es') !!}">
+                <a class="dropdown-item" href="{!! route('app.dashboard') !!}">
                     {{ trans('sentences.profile') }}
                 </a>
             </li>

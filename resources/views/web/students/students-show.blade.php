@@ -21,18 +21,16 @@
                     </div>
                     <div class="col-6 d-flex justify-content-end align-items-center">
                         @if ($user->student->open_to_work)
-                            <button type="button" class="btn btn-primary position-relative">
-                                Profile
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                                    <span class="visually-hidden">{{ trans('sentences.opem_to_work') }}</span>
-                                </span>
-                            </button>
+                            <span class="badge rounded-pill bg-primary">{{ trans('sentences.opem_to_work') }}</span>
                         @endif
                     </div>
                 </div>
             </div>
             <div class="col-12 my-3 p-2">
                 <p>{!! $user->student->resume !!}</p>
+            </div>
+            <div class="col-12 my-3 p-2">
+                <p>{!! $user->student->experiences !!}</p>
             </div>
         </div>
     </div>
