@@ -10,6 +10,8 @@ class Company extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'name', 'slug', 'email', 'phone', 'address', 'avatar', 'cover', 'website', 'resume', 'verified', 'social_networks', 'bio'];
+
     protected $casts = [
         'social_networks' => 'array',
         'academic_institution_data' => 'array',

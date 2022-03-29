@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class IsCompany
@@ -30,6 +31,6 @@ class IsCompany
             return $next($request);
         }
 
-        return redirect('/home')->with('error', trans('sentences.access_denied'));
+        return redirect('/')->with('error', trans('sentences.access_denied'));
     }
 }

@@ -18,13 +18,16 @@ class CreateCompaniesTable extends Migration
 
             $table->string('name');
             $table->string('slug');
-            $table->mediumText('resume');
-            $table->mediumText('bio');
-            $table->text('avatar');
-            $table->text('cover');
+            $table->string('email')->nullable();
+            $table->mediumText('resume')->nullable();
+            $table->mediumText('bio')->nullable();
+            $table->text('avatar')->nullable();
+            $table->text('cover')->nullable();
             $table->json('social_networks')->nullable();
             $table->string('phone')->nullable();
+            $table->string('address')->nullable();
             $table->string('website')->nullable();
+            $table->boolean('verified')->default(0);
 
             $table->foreignId('user_id')->constrained();
 

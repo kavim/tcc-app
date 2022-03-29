@@ -162,7 +162,6 @@ class DashboardController extends Controller
 
     public function updateCourse(Request $request)
     {
-        dd($request->all());
         $validated = $request->validate([
             'course_completed_at' => 'date_format:d/m/Y|before:today|nullable',
             'course_started_at' => 'date_format:d/m/Y',

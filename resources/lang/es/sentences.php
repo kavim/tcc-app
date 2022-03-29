@@ -2,8 +2,19 @@
 
 return [
     //pages
+    'app_name' => 'PROBI',
     'welcome' => 'Bienvenido a probi!',
     'for_companies' => 'Para empresas',
+    'home_header_title' => 'Bienvenido a',
+    'home_header_subtitle' => '¡Regístrate y empieza a aplicar!',
+    'home_header_button' => 'Regístrate',
+    'home_header_text' => '¡Encontre excelentes oportunidades y los mejores profisionales de la frontera Rivera/Livramente!',
+    'home_project_description' => 'Uma plataforma WEB para facilitar a divulgação de estágios e vagas de emprego, viabilizando a comunicação entre os três atores que o presente projeto abrange, sendo eles: alunos e egressos, as instituições de ensino e empresas contratantes, possibilitando subsequentemente um controle quantitativo e qualitativo relativo ao desempenho dos alunos e egressos dos cursos binacionais superiores do IFSUL e da UTEC.',
+
+    'home_project_objective_title' => 'Objetivo del proyecto',
+    'home_project_objective_description' => 'Tens-se como objetivo brindar uma aplicação web em que os alunos e egressos possam ingressar e compartilhar sua formação e interesses no mercado de trabalho, aproximando as instituições de ensino e egressos a empresas.',
+
+    'for_education_institutions' => 'Para instituições de ensino',
 
     'name' => 'Nombre',
     'email' => 'Email',
@@ -69,4 +80,7 @@ return [
     'field_of_activity' => 'Campo de actividad',
     'trade_name' => 'Nombre comercial',
     'company_email' => 'Email de la empresa',
+    'already_have_an_account' => '¿Ya tienes una cuenta?',
+    'register_now' => 'Regístrate ahora',
+    'not_share_company_email' => 'Nunca compartiremos su correo electrónico con nadie más.',
 ];

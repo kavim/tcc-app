@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\CompanyRegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -27,7 +28,10 @@ Route::get('socialitelogin/{provider}', [SocialiteLoginController::class, 'redir
 Route::get('{provider}/callback', [SocialiteLoginController::class, 'handleProviderCallback']);
 Route::get('change-language/{lang}', [LanguageController::class, 'changeLanguage'])->name('change-language');
 Route::get('/students', [HomeController::class, 'students'])->name('students');
+
 Route::get('/for_companies', [HomeController::class, 'for_companies'])->name('for_companies');
+Route::post('/for_companies/register', [CompanyRegisterController::class, 'register'])->name('for_companies.register');
+
 // uma forma mais simples de acessar o perfil do usuário
 Route::get('/u/{slug_name}', [HomeController::class, 'studentsShow'])->name('students.show');
 Route::get('/post', [PostController::class, 'index'])->name('posts.index');

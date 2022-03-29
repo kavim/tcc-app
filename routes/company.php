@@ -13,4 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\EditorController::class, 'index'])->name('placeowner.dashboard');
+Route::get('/home', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
+
+Route::get('/edit', [App\Http\Controllers\CompanyController::class, 'edit'])->name('company.edit');
+Route::post('/update', [App\Http\Controllers\CompanyController::class, 'update'])->name('company.update');
+
+Route::get('/post/show', [App\Http\Controllers\CompanyController::class, 'postIndex'])->name('company.post.index');
+Route::get('/post/edit/{id}', [App\Http\Controllers\CompanyController::class, 'postEdit'])->name('company.post.edit');
+Route::post('/post/update/{id}', [App\Http\Controllers\CompanyController::class, 'postUpdate'])->name('company.post.update');
