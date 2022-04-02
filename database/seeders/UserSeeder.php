@@ -45,9 +45,9 @@ class UserSeeder extends Seeder
         ])->create();
 
         $user = \App\Models\User::factory([
-            'name' => 'regular Bro',
-            'slug_name' => 'regular_bro',
-            'email' => 'regularuser@loscarpinchos.com',
+            'name' => 'Usuario de teste',
+            'slug_name' => 'usuario_de_teste',
+            'email' => 'usuariodeteste@probi.com',
             'email_verified_at' => \Carbon\Carbon::now(),
             'user_type_id' => 4,
             'password' => \Hash::make('123senha123')
@@ -69,7 +69,7 @@ class UserSeeder extends Seeder
 
         // criando varios usuarios para teste
 
-        $users = \App\Models\User::factory(50)->create();
+        $users = \App\Models\User::factory(10)->create();
 
         $users->each(function ($user) {
             $student = \App\Models\Student::factory([

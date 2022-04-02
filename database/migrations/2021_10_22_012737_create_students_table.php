@@ -26,11 +26,13 @@ class CreateStudentsTable extends Migration
             $table->string('phone')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('academic_institution_email')->nullable(); //email from academic institution
+            $table->boolean('is_academic_institution_email_verified')->default(0);
             $table->json('academic_institution_data')->nullable(); //data from academic institution
             $table->json('social_networks')->nullable();
             $table->string('gender')->nullable();
             $table->mediumText('resume')->nullable();
             $table->mediumText('experiences')->nullable();
+            $table->string('email_verify_token')->nullable();
 
             $table->foreignId('user_id')->constrained();
 

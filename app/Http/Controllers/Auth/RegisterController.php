@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -64,12 +66,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'slug_name' => \Str::slug($data['name']),
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'user_type_id' => 4,
-        ]);
+        DB::beginTransaction();
+
+        try {
+            $user = User::create([
+                'name' => $data['name'],
+                'slug_name' => \Str::slug($data['name']),
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'user_type_id' => 4,
+            ]);
+
+            Student::create([
+                'user_id' => $user->id,
+            ]);
+
+            DB::commit();
+
+            return $user;
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            dd($e);
+        }
     }
 }

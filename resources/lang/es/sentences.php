@@ -16,6 +16,9 @@ return [
 
     'for_education_institutions' => 'Para instituições de ensino',
 
+
+    'welcome_user' => 'Bienvenido',
+
     'name' => 'Nombre',
     'email' => 'Email',
     'password' => 'Contraseña',
@@ -67,7 +70,7 @@ return [
     'course_started_at' => 'Curso iniciado en',
     'experiences' => 'Experiencias',
 
-    //Compnie
+    //Compnies
     'company_name' => 'Nombre de la empresa',
     'company_email' => 'Email de la empresa',
     'company_phone' => 'Teléfono de la empresa',
@@ -83,4 +86,8 @@ return [
     'already_have_an_account' => '¿Ya tienes una cuenta?',
     'register_now' => 'Regístrate ahora',
     'not_share_company_email' => 'Nunca compartiremos su correo electrónico con nadie más.',
+
+
+    'i_do_not_have_a_academic_email' => 'No tengo un email académico',
+    'to_validate_yout_profile_get_in_touch_with_yout_academic_institution' => 'Para validar su perfil, contacte con su institución académica',
 ];

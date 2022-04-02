@@ -79,6 +79,10 @@
                                 </div>
                             </div>
                         </form>
+
+                        <hr>
+
+                        <a href="{{ route('register') }}">{{ trans('sentences.create_account') }}</a>
                     </div>
                 </div>
             </div>

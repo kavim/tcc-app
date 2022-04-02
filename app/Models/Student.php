@@ -20,6 +20,8 @@ class Student extends Model
         'open_to_work',
         'phone',
         'academic_institution_email',
+        'is_academic_institution_email_verified',
+        'email_verify_token',
         'academic_institution_data',
         'social_networks',
         'resume',
@@ -67,5 +69,10 @@ class Student extends Model
     public function getSocialNetworks(): array
     {
         return $this->social_networks ?: [];
+    }
+
+    public function isAcademicInstitutionEmailVerified(): bool
+    {
+        return $this->is_academic_institution_email_verified;
     }
 }

@@ -32,4 +32,6 @@ return [
 
     'tipo_estudante' => 4,
 
+    'academic_email_suffix_utec' => '@utec.edu.uy',
+    'academic_email_suffix_ifsul' => '@academico.ifsul.edu.br',
 ];

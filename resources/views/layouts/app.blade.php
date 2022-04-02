@@ -63,17 +63,36 @@
         </div>
 
         <div class="row">
-            <div class="col-3">
-                <x-app.sidebar.links></x-app.sidebar.links>
-            </div>
-            <div class="col-9">
-                @yield('content')
+            <div class="col-12 col-md-3  mb-4">
+                <div class="d-block d-sm-none">
+                    <div class="accordion" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Menu
+                          </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                              <x-app.sidebar.links></x-app.sidebar.links>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
 
+                <div class="d-none d-sm-block">
+                    <x-app.sidebar.links></x-app.sidebar.links>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-9">
+                @yield('content')
             </div>
         </div>
     </div>
 
-    <x-app.footer/>
+    {{-- <x-app.footer/> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>

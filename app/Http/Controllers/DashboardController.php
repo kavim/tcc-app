@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Course;
+use App\Models\Student;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Mail\StudentEmailVerify;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class DashboardController extends Controller
@@ -15,7 +20,12 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        return view('app.dashboard', compact('user'));
+//        dd($user->student->academic_institution_emails);
+
+        $academic_institution_email = 'oawdnoaiwdnaowidn@oanwoianwd.com';
+        $is_academic_institution_email_verified = $user->student->is_academic_institution_email_verified;
+
+        return view('app.dashboard', compact('user', 'academic_institution_email', 'is_academic_institution_email_verified'));
     }
 
     public function editProfile()
@@ -101,7 +111,7 @@ class DashboardController extends Controller
 
         $img = $user->student->update(['cover' => $src]);
 
-        $image = Image::make(storage_path("app/public/" . $src))->fit(300, 300)->save();
+        $image = Image::make(storage_path("app/public/" . $src))->fit(1200, 400)->save();
         $image->save();
 
         return redirect()->back()->with('success', 'cover atualizado com sucesso');
@@ -152,10 +162,10 @@ class DashboardController extends Controller
         $user = Auth::user();
         $courses = Course::get();
 
-        $current_course_id = $user->student->course()->pivot->course_id;
-        $course_started_at = Carbon::parse($user->student->course()->pivot->started_at)->format('d/m/Y');
-        $course_completed_at = Carbon::parse($user->student->course()->pivot->completed_at)->format('d/m/Y');
-        $course_completed = $user->student->course()->pivot->completed;
+        $current_course_id = $user->student->course()->pivot->course_id ?? null;
+        $course_started_at = Carbon::parse($user->student->course()->pivot->started_at ?? '10-10-2020')->format('d/m/Y');
+        $course_completed_at = Carbon::parse($user->student->course()->pivot->completed_at ?? '10-10-2020')->format('d/m/Y') ?? null;
+        $course_completed = $user->student->course()->pivot->completed ?? null;
 
         return view('app.course', compact('courses', 'current_course_id', 'course_started_at', 'course_completed_at', 'course_completed'));
     }
@@ -164,21 +174,90 @@ class DashboardController extends Controller
     {
         $validated = $request->validate([
             'course_completed_at' => 'date_format:d/m/Y|before:today|nullable',
-            'course_started_at' => 'date_format:d/m/Y',
+            'course_started_at' => 'required|date_format:d/m/Y',
             'selected_course_id' => 'required',
         ]);
 
         $student = Auth::user()->student;
 
-        $student->courses()->sync(
+        if($request->has('course_completed')){
+            $course_completed = true;
+        }else{
+            $course_completed = false;
+        }
+
+        $student->courses()->detach();
+
+        $student->courses()->attach(
             $request->input('selected_course_id'),
             [
-                'completed' => $request->input('course_completed'),
-                'completed_at' => $request->input('course_completed') ? Carbon::createFromFormat('d/m/Y', $request->input('course_completed_at'))->format('Y-m-d') : null,
-                'started_at' => Carbon::createFromFormat('d/m/Y', $request->input('course_started_at'))->format('Y-m-d') ?? null,
+                'completed' => $course_completed,
+                'completed_at' => $course_completed ? Carbon::createFromFormat('d/m/Y', $request->input('course_completed_at'))->format('Y-m-d') : null,
+                'started_at' =>  Carbon::createFromFormat('d/m/Y', $request->input('course_started_at'))->format('Y-m-d'),
             ]
         );
 
         return redirect()->back()->with('success', 'Atualizado com sucesso');
+    }
+
+    public function verifyAcademicEmail(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email|unique:students,academic_institution_email',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $student = Auth::user()->student;
+            $student->academic_institution_email = $request->input('email');
+            $student->email_verify_token = Str::uuid();
+            $student->save();
+
+
+            Mail::send(new StudentEmailVerify($student));
+
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Verificação de email enviada');
+
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            dd($e);
+        }
+    }
+
+    public function handleVerifyAcademicEmail(string $token): \Illuminate\Http\RedirectResponse
+    {
+//        $validated = $request->validate([
+//            'token' => 'required',
+//        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $student = Student::where('user_id', Auth::user()->id)->first();
+
+            if ($student->email_verify_token !== $token) {
+                return redirect()->route('home')->with('error', 'Token inválido');
+            }
+
+            $student->update([
+                'email_verify_token' => null,
+                'is_academic_institution_email_verified' => true,
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('home')->with('success', 'Email verificado com sucesso');
+
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            return redirect()->route('home')->with('error', 'Token inválido');
+        }
     }
 }

@@ -27,6 +27,12 @@
                 $('#course_completed_at').hide('fast');
             }
         });
+
+        if($('#switch').is(':checked')){
+            $('#course_completed_at').show();
+        }else{
+            $('#course_completed_at').hide();
+        }
     });
 </script>
 @endsection

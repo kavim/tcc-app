@@ -1,5 +1,5 @@
 <div class="list-group">
-    <a href="{{ route('app.dashboard') }}" class="list-group-item list-group-item-action @if(Route::is('app.dashboard')) active @endif" aria-current="true">
+    <a href="{{ route('app.dashboard') }}" class="list-group-item list-group-item-action @if(Route::is('app.dashboard') || Route::is('home')) active @endif" aria-current="true">
         Dashboard
     </a>
     <a href="{{ route('app.profile.edit') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit')) active @endif">{{ trans('sentences.profile') }}</a>

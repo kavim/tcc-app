@@ -54,5 +54,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/course/edit/', [DashboardController::class, 'editCourse'])->name('app.profile.edit.course');
         Route::post('/course/update/', [DashboardController::class, 'updateCourse'])->name('app.profile.update.course');
 
+        //app.verify_academic_email
+        Route::post('/verify_academic_email', [DashboardController::class, 'verifyAcademicEmail'])->name('app.verify_academic_email');
+        Route::get('/handle_email_verify_token/{token}', [DashboardController::class, 'handleVerifyAcademicEmail'])->name('app.handle_email_verify_token');
+
     });
 });

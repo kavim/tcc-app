@@ -76,4 +76,8 @@ return [
     'already_have_an_account' => '¿Ya tienes una cuenta?',
     'register_now' => 'Regístrate ahora',
     'not_share_company_email' => 'Nunca compartiremos su correo electrónico con nadie más.',
+
+    //email
+    'verify_email' => 'Verificar correo electrónico',
+    'click_here_to_verify' => 'Haga clic aquí para verificar',
 ];

@@ -14,6 +14,8 @@
                         <form method="POST" enctype="multipart/form-data" id="image-upload-preview"
                             action="{{ route('app.profile.update.cover') }}">
 
+                            @csrf
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
