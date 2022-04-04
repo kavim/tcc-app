@@ -28,6 +28,8 @@ class CreatePostsTable extends Migration
             $table->timestamp('published_at')->nullable(); //ativo = data de publicação, se for ativo, data de publicação não pode ser nula
 
             $table->unsignedInteger('order')->nullable();
+
+            $table->foreignId('course_id')->nullable()->constrained();
             $table->foreignId('category_id')->constrained();
             $table->foreignId('user_id')->constrained();
 
