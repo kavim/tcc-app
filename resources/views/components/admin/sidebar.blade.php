@@ -21,10 +21,10 @@
         <a class="nav-link" href="{{ route('admin.users.index') }}"> <i class="fas fa-fw fa-edit"></i> <span>Studantes</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.users.index') }}"> <i class="fas fa-fw fa-edit"></i> <span>Empresas</span></a>
+        <a class="nav-link" href="{{ route('admin.companies.index') }}"> <i class="fas fa-fw fa-edit"></i> <span>Empresas</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.users.index') }}"> <i class="fas fa-fw fa-edit"></i> <span>Posts/Vagas</span></a>
+        <a class="nav-link" href="{{ route('admin.posts.index') }}"> <i class="fas fa-fw fa-edit"></i> <span>Posts/Vagas</span></a>
     </li>
 
 </ul>

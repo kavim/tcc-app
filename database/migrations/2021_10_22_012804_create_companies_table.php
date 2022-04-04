@@ -19,7 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('email')->nullable();
-            $table->mediumText('resume')->nullable();
+            $table->longText('resume')->nullable();
             $table->mediumText('bio')->nullable();
             $table->text('avatar')->nullable();
             $table->text('cover')->nullable();

@@ -204,3 +204,23 @@ input[type="file"] {
     background-image: linear-gradient(180deg, #655D8A 10%, #484263 100%);
     background-size: cover;
   }
+
+
+.thecontainer {
+    position: relative;
+}
+.tag {
+    float: left;
+    position: absolute;
+    left: 45%;
+    bottom: 0px;
+    z-index: 1000;
+}
+
+// .post-cover {
+//     min-height: 200px;
+//     background-color: #ccc;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center center;
+// }

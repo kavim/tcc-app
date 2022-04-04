@@ -30,6 +30,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect('/home')->with('error',trans('sentences.access_denied'));
+        return redirect('/')->with('error',trans('sentences.access_denied'));
     }
 }

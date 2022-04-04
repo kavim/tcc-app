@@ -13,6 +13,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ADMIN = 1;
+    public const EDITOR = 2;
+    public const COMPANY = 3;
+    public const STUDENT = 4;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -76,5 +81,10 @@ class User extends Authenticatable
     public function getLastName(): string
     {
         return explode(' ', $this->name)[1];
+    }
+
+    public function getUserTypeName(): string
+    {
+        return $this->type->name;
     }
 }

@@ -90,4 +90,17 @@ return [
 
     'i_do_not_have_a_academic_email' => 'No tengo un email académico',
     'to_validate_yout_profile_get_in_touch_with_yout_academic_institution' => 'Para validar su perfil, contacte con su institución académica',
+
+    // ADMIN
+    'admin_panel' => 'Panel de administración',
+    'admin_dashboard' => 'Dashboard',
+    'admin_students' => 'Estudiantes',
+    'admin_jobs' => 'Trabajos',
+    'admin_companies' => 'Empresas',
+    'admin_users' => 'Usuarios',
+    'show_students' => 'Mostrar estudiantes',
+    'show_students_details' => 'Mostrar detalles de estudiantes',
+    'show_jobs' => 'Mostrar trabajos',
+    'create_job' => 'Crear trabajo',
+    'creat_company' => 'Crear empresa',
 ];

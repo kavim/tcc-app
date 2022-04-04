@@ -5,21 +5,35 @@ namespace App\Models;
 use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'name', 'slug', 'email', 'phone', 'address', 'avatar', 'cover', 'website', 'resume', 'verified', 'social_networks', 'bio'];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'slug',
+        'email',
+        'phone',
+        'address',
+        'avatar',
+        'cover',
+        'website',
+        'resume',
+        'verified',
+        'social_networks',
+        'bio'
+    ];
 
     protected $casts = [
         'social_networks' => 'array',
-        'academic_institution_data' => 'array',
     ];
 
-    public function users(): HasMany
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     // FUNCTIONS
@@ -31,5 +45,10 @@ class Company extends Model
     public function getCover(): string
     {
         return $this->cover ? ImageHelper::checkIfIsALink($this->cover) : asset('images/default-cover-4.jpg');
+    }
+
+    public function isVerified(): string
+    {
+        return $this->verified ? 'Verificado' : 'No verificado';
     }
 }

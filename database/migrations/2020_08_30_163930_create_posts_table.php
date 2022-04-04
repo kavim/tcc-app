@@ -18,12 +18,13 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
             $table->string('slug');
-            $table->string('subtitle');
+            $table->string('subtitle')->nullable();
             $table->text('description');
             $table->longText('body');
-            $table->text('featured_image');
+            $table->text('featured_image')->nullable();
 
-            $table->boolean('active')->default(0); //ativo = publicado
+            $table->boolean('active')->default(0); //ativo = validado pelo admin
+            $table->boolean('published')->default(0); //published = publicado
             $table->timestamp('published_at')->nullable(); //ativo = data de publicação, se for ativo, data de publicação não pode ser nula
 
             $table->unsignedInteger('order')->nullable();

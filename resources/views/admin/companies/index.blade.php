@@ -2,8 +2,8 @@
 @section('content')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('admin.users') }}</h1>
-        <a href="{{ route('admin.users.create') }}" class="btn btn-success btn-lg shadow-sm"><i
+        <h1 class="h3 mb-0 text-gray-800">{{ __('admin.companies') }}</h1>
+        <a href="{{ route('admin.companies.create') }}" class="btn btn-success btn-lg shadow-sm"><i
                 class="fas fa-plus fa-sm"></i></a>
     </div>
 
@@ -25,32 +25,35 @@
                     <thead>
                     <tr>
                         <th>id</th>
+                        <th>logo</th>
                         <th>name</th>
                         <th>email</th>
-                        <th>tipo</th>
+                        <th>verified</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>id</th>
+                        <th>logo</th>
                         <th>name</th>
                         <th>email</th>
-                        <th>tipo</th>
+                        <th>verified</th>
                         <th>Ações</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($companies as $company)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->getUserTypeName() }}</td>
+                            <td>{{ $company->id }}</td>
+                            <td><img src="{{ $company->getAvatar() }}" alt="{{ $company->getAvatar() }}" width="60"></td>
+                            <td>{{ $company->name }}</td>
+                            <td>{{ $company->email }}</td>
+                            <td>{{ $company->isVerified() }}</td>
                             <td>
-                                <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary m-1"><i
-                                        class="fas fa-eye"></i></a>
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning m-1"><i
+                               {{-- <a href="{{ route('admin.companies.show', $company->id) }}" class="btn btn-primary m-1"><i
+                                       class="fas fa-eye"></i></a> --}}
+                               <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-default m-1"><i
                                         class="fas fa-edit"></i></a>
                             </td>
                         </tr>

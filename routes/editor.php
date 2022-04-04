@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\EditorController::class, 'index'])->name('editor.dashboard');
+//Route::get('/', [App\Http\Controllers\EditorController::class, 'index'])->name('editor.dashboard');

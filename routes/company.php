@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
+Route::get('/', [App\Http\Controllers\CompanyController::class, 'index'])->name('company.index');
 
 Route::get('/edit', [App\Http\Controllers\CompanyController::class, 'edit'])->name('company.edit');
 Route::post('/update', [App\Http\Controllers\CompanyController::class, 'update'])->name('company.update');
 
-Route::get('/post/show', [App\Http\Controllers\CompanyController::class, 'postIndex'])->name('company.post.index');
-Route::get('/post/edit/{id}', [App\Http\Controllers\CompanyController::class, 'postEdit'])->name('company.post.edit');
-Route::post('/post/update/{id}', [App\Http\Controllers\CompanyController::class, 'postUpdate'])->name('company.post.update');
+Route::get('/posts', [App\Http\Controllers\CompanyController::class, 'postsIndex'])->name('company.posts.index');
+Route::get('/posts/show/{id}', [App\Http\Controllers\CompanyController::class, 'postsShow'])->name('company.posts.show');
+Route::get('/posts/create', [App\Http\Controllers\CompanyController::class, 'postsCreate'])->name('company.posts.create');
+Route::get('/posts/edit/{id}', [App\Http\Controllers\CompanyController::class, 'postsEdit'])->name('company.posts.edit');
+Route::post('/posts/update/{id}', [App\Http\Controllers\CompanyController::class, 'postsUpdate'])->name('company.posts.update');
+Route::delete('/posts/delete/{id}', [App\Http\Controllers\CompanyController::class, 'postsUpdate'])->name('company.posts.update');

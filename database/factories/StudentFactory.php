@@ -34,6 +34,8 @@ class StudentFactory extends Factory
             ],
             'resume' => $faker->realText(rand(500, 1500)),
             'bio' => $faker->realText(rand(50, 100)),
+            'academic_institution_email' => $this->faker->unique()->safeEmail(),
+            'is_academic_institution_email_verified' => true,
         ];
     }
 }

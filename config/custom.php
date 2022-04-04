@@ -1,6 +1,15 @@
 <?php
 
 return [
+    // user type
+    'user_types' => [
+        [
+            "admin",
+            "editor",
+            "company",
+            "student",
+        ],
+    ],
 
     //patio
     'states' => ['Rivera', 'Rio Grande do Sul'],

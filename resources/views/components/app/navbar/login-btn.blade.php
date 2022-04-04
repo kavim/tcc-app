@@ -9,9 +9,21 @@
         </a>
         <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
             <li>
-                <a class="dropdown-item" href="{!! route('app.dashboard') !!}">
-                    {{ trans('sentences.profile') }}
-                </a>
+                @if(auth()->user()->user_type_id == 1)
+                    <a class="dropdown-item" href="{!! route('admin.index') !!}">
+                        {{ trans('sentences.profile') }}
+                    </a>
+                @endif
+                @if(auth()->user()->user_type_id == 3)
+                    <a class="dropdown-item" href="{!! route('company.index') !!}">
+                        {{ trans('sentences.profile') }}
+                    </a>
+                @endif
+                @if(auth()->user()->user_type_id == 4)
+                    <a class="dropdown-item" href="{!! route('app.dashboard') !!}">
+                        {{ trans('sentences.profile') }}
+                    </a>
+                @endif
             </li>
             <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"

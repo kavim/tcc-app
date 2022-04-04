@@ -30,7 +30,7 @@ class CreateStudentsTable extends Migration
             $table->json('academic_institution_data')->nullable(); //data from academic institution
             $table->json('social_networks')->nullable();
             $table->string('gender')->nullable();
-            $table->mediumText('resume')->nullable();
+            $table->longText('resume')->nullable();
             $table->mediumText('experiences')->nullable();
             $table->string('email_verify_token')->nullable();
 

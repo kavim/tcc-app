@@ -19,6 +19,7 @@ class Post extends Model
         'category_id',
         'user_id',
         'active',
+        'published',
         'order',
         'featured_image'
     ];
@@ -28,12 +29,12 @@ class Post extends Model
         return $this->featured_image ? ImageHelper::checkIfIsALink($this->featured_image) : asset('images/default-post-img.jpg');
     }
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }

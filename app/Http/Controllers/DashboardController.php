@@ -260,4 +260,5 @@ class DashboardController extends Controller
             return redirect()->route('home')->with('error', 'Token inválido');
         }
     }
+
 }
