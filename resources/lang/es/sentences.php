@@ -9,10 +9,10 @@ return [
     'home_header_subtitle' => '¡Regístrate y empieza a aplicar!',
     'home_header_button' => 'Regístrate',
     'home_header_text' => '¡Encontre excelentes oportunidades y los mejores profisionales de la frontera Rivera/Livramente!',
-    'home_project_description' => 'Uma plataforma WEB para facilitar a divulgação de estágios e vagas de emprego, viabilizando a comunicação entre os três atores que o presente projeto abrange, sendo eles: alunos e egressos, as instituições de ensino e empresas contratantes, possibilitando subsequentemente um controle quantitativo e qualitativo relativo ao desempenho dos alunos e egressos dos cursos binacionais superiores do IFSUL e da UTEC.',
+    'home_project_description' => 'Una plataforma WEB para facilitar la difusión de pasantías y vacantes laborales, posibilitando la comunicación entre los tres actores que cubre este proyecto, a saber: estudiantes y egresados, instituciones educativas y empresas contratistas, posibilitando posteriormente el control cuantitativo y cualitativo relativo al desempeño de estudiantes y egresados. de los cursos de educación superior binacionales IFSUL y UTEC.',
 
     'home_project_objective_title' => 'Objetivo del proyecto',
-    'home_project_objective_description' => 'Tens-se como objetivo brindar uma aplicação web em que os alunos e egressos possam ingressar e compartilhar sua formação e interesses no mercado de trabalho, aproximando as instituições de ensino e egressos a empresas.',
+    'home_project_objective_description' => 'El objetivo es brindar una aplicación web en la que estudiantes y egresados ​​puedan unirse y compartir su formación e intereses en el mercado laboral, acercando instituciones educativas y egresados ​​a las empresas.',
 
     'for_education_institutions' => 'Para instituições de ensino',
 
@@ -33,7 +33,7 @@ return [
     'confirm_password' => 'Confirmar contraseña',
     'language' => 'Idioma',
     'avatar' => 'Avatar',
-    'cover' => 'Partada',
+    'cover' => 'Portada',
     'profile' => 'Perfil',
     'dashboard' => 'Dashboard',
     'home' => 'Inicio',
