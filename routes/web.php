@@ -53,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/experiences/update/', [DashboardController::class, 'updateExperiences'])->name('app.profile.update.experiences');
         Route::get('/course/edit/', [DashboardController::class, 'editCourse'])->name('app.profile.edit.course');
         Route::post('/course/update/', [DashboardController::class, 'updateCourse'])->name('app.profile.update.course');
+        Route::get('/status/edit/', [DashboardController::class, 'editStatus'])->name('app.profile.edit.status');
+        Route::post('/status/update/', [DashboardController::class, 'updateStatus'])->name('app.profile.update.status');
 
         //app.verify_academic_email
         Route::post('/verify_academic_email', [DashboardController::class, 'verifyAcademicEmail'])->name('app.verify_academic_email');

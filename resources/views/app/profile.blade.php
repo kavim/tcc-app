@@ -36,19 +36,21 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="name">{{ trans('sentences.name') }}</label>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ $user->email }}">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="{{ trans('sentences.name') }}" value="{{ old('name') ?? $user->name ?? '' }}">
                                 </div>
                                 <div class="col">
                                     <label for="inputEmail4">Email</label>
-                                    <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ $user->email }}">
+                                    <input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" value="{{ old('email') ?? $user->email ?? '' }}">
                                 </div>
                             </div>
 
                             <div class="row my-3">
                                 <div class="col">
                                     <div class="form-floating">
-                                        <textarea name="bio" class="form-control" placeholder="{{ trans('sentences.bio_placeholder') }}" id="floatingTextarea2" style="height: 100px"></textarea>
-                                        <label for="floatingTextarea2">@if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif</label>
+                                        <textarea name="bio" class="form-control" placeholder="{{ trans('sentences.bio_placeholder') }}" id="floatingTextarea2" style="height: 100px">
+                                            @if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif
+                                        </textarea>
+                                        <label for="floatingTextarea2">{{ trans('sentences.bio_placeholder') }}</label>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +58,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="enrollment">{{ trans('sentences.enrollment') }}</label>
-                                    <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123" value="@if(old('document')) {{old('enrollment')}} @else {{$user->student->enrollment}} @endif">
+                                    <input name="enrollment" type="text" class="form-control" id="enrollment" placeholder="123123123" value="@if(old('enrollment')) {{old('enrollment')}} @else {{$user->student->enrollment}} @endif">
                                 </div>
                                 <div class="col">
                                     <label for="phone">{{ trans('sentences.phone') }}</label>

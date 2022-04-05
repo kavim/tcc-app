@@ -103,4 +103,7 @@ return [
     'show_jobs' => 'Mostrar trabajos',
     'create_job' => 'Crear trabajo',
     'creat_company' => 'Crear empresa',
+
+    'open_to_work' => 'Buscando laburo',
+    'status' => 'Status',
 ];

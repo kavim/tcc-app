@@ -59,7 +59,10 @@ class DashboardController extends Controller
         }
 
         $user = Auth::user();
-        $user->update($validated);
+        $user->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
         $user->student()->update([
             'enrollment' => $request->input('enrollment'),
             'bio' => $request->input('bio'),
@@ -259,6 +262,24 @@ class DashboardController extends Controller
             // something went wrong
             return redirect()->route('home')->with('error', 'Token inválido');
         }
+    }
+
+    public function editStatus ()
+    {
+        $user = Auth::user();
+
+        return view('app.status', compact('user'));
+    }
+
+    public function updateStatus (Request $request): \Illuminate\Http\RedirectResponse
+    {
+        $student = Auth::user()->student;
+
+        $student->update([
+            'open_to_work' => (bool)$request->input('open_to_work'),
+        ]);
+
+        return redirect()->back()->with('success', 'Status atualizado com sucesso');
     }
 
 }

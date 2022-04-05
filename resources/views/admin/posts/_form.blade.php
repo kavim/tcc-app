@@ -50,6 +50,18 @@
         </select>
 </div>
 
+<strong>Course</strong>
+<hr>
+<div class="form-group">
+    <label for="company_id"></label>
+    <select class="form-control" id="company_id" name="user_id">
+        <option value="">Select a company</option>
+            @foreach ($courses as $course)
+                <option @if(isset($post) && $course->id == $post->course->id) selected @endif value="{{ $course->id }}">{{ $course->name }}</option>
+            @endforeach
+        </select>
+</div>
+
 <button type="submit" class="btn btn-primary">Save</button>
 
 @section('styles')

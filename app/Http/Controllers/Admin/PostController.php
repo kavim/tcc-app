@@ -20,7 +20,8 @@ class PostController extends Controller
     {
         $cover = asset('images/default-post-img.jpg');
         $companies = \App\Models\Company::get();
-        return view('admin.posts.create', compact('cover', 'companies'));
+        $courses = \App\Models\Course::get();
+        return view('admin.posts.create', compact('cover', 'companies', 'courses'));
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
