@@ -66,7 +66,7 @@ class SocialiteLoginController extends Controller
                 'email'    => $user->email,
                 'provider' => $provider,
                 'provider_id' => $user->id,
-                'password' => Hash::make(rand(10, 99))
+                'password' => Hash::make(rand(10, 99)),
                 'user_type_id' => 4,
             ]);
 
