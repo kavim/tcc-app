@@ -62,3 +62,7 @@ Route::middleware(['auth'])->group(function () {
 
     });
 });
+
+Route::get('error-page', function(){
+    return view('web.error-page');
+})->name('app.error');

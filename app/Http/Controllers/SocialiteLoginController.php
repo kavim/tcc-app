@@ -52,15 +52,37 @@ class SocialiteLoginController extends Controller
     public function findOrCreateUser($user, $provider)
     {
         $authUser = User::where('provider_id', $user->id)->first();
+
         if ($authUser) {
             return $authUser;
         }
-        return User::create([
-            'name'     => $user->name,
-            'email'    => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id,
-            'password' => Hash::make(rand(10, 99))
-        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $user = User::create([
+                'name'     => $user->name,
+                'slug_name' => \Str::slug($user->name),
+                'email'    => $user->email,
+                'provider' => $provider,
+                'provider_id' => $user->id,
+                'password' => Hash::make(rand(10, 99))
+                'user_type_id' => 4,
+            ]);
+
+            Student::create([
+                'user_id' => $user->id,
+            ]);
+
+            DB::commit();
+
+            return $user;
+            // all good
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+
+            return redirect()->route('app.error');
+        }
     }
 }

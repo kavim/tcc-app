@@ -106,4 +106,10 @@ return [
 
     'open_to_work' => 'Buscando laburo',
     'status' => 'Status',
+
+    //login
+
+    'sentences_login' => 'Inicia sesión para continuar',
+    'create_account' => 'Crear cuenta',
+    'login_with_linkedin' => 'Iniciar sesión con',
 ];

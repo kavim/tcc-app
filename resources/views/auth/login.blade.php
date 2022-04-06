@@ -2,15 +2,31 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center py-3">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
+
+
+
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
+
+
+                            <div class="row mb-3">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end"></label>
+                                <div class="col-md-6 p-3 text-center">
+                                    <a class="btn btn-outline-dark w-100" href="{{ route('linkedinlogin', 'linkedin') }}">
+                                        {{ __('sentences.login_with_linkedin') }}
+                                        &nbsp;
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" alt="" width="80">
+                                    </a>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
@@ -44,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
@@ -55,19 +71,19 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group row mb-0">
+                            {{-- <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <a href="{{ route('linkedinlogin', 'linkedin') }}">
                                         {{ __('Login with LinkedIn') }}
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
                                         {{ __('Login') }}
                                     </button>
 
@@ -82,7 +98,9 @@
 
                         <hr>
 
-                        <a href="{{ route('register') }}">{{ trans('sentences.create_account') }}</a>
+                        <div class="text-center">
+                            <a href="{{ route('register') }}">{{ trans('sentences.create_account') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
