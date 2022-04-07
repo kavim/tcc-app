@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function students()
     {
-        $students = \App\Models\User::where('user_type_id', config('custom.tipo_estudante'))->inRandomOrder()->get();
+        $students = \App\Models\User::where('user_type_id', config('custom.tipo_estudante'))->where('block', false)->inRandomOrder()->get();
 
         return view('web.students.students', compact('students'));
     }

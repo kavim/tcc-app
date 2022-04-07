@@ -124,7 +124,6 @@ return [
     ],
 
     //login
-
     'sentences_login' => 'Inicia sesión para continuar',
     'create_account' => 'Crear cuenta',
     'login_with_linkedin' => 'Iniciar sesión con',
