@@ -16,7 +16,7 @@
 
                             <div class="mb-3">
                                 <textarea class="form-control" id="summernote" name="experiences">
-                                    {{ old('experiences') ? $experiences : trans('sentences.discribe_here_your_experiences') }}
+                                    {{ old('experiences') ?? $experiences ?? trans('sentences.discribe_here_your_experiences') }}
                                 </textarea>
                             </div>
 

@@ -45,13 +45,16 @@
                             </div>
 
                             <div class="row my-3">
+                                {{-- <div class="form-floating">
+                                    <textarea name="bio" class="form-control" placeholder="{{ trans('sentences.bio_placeholder') }}" id="floatingTextarea2" style="height: 100px">
+                                        {{ old('bio') ?? $user->bio ?? '' }}
+                                        {!! $user->bio !!}
+                                    </textarea>
+                                    <label for="floatingTextarea2">{{ trans('sentences.bio_placeholder') }}</label>
+                                </div> --}}
                                 <div class="col">
-                                    <div class="form-floating">
-                                        <textarea name="bio" class="form-control" placeholder="{{ trans('sentences.bio_placeholder') }}" id="floatingTextarea2" style="height: 100px">
-                                            @if(old('document')) {{old('enrollment')}} @else {{$user->student->bio}} @endif
-                                        </textarea>
-                                        <label for="floatingTextarea2">{{ trans('sentences.bio_placeholder') }}</label>
-                                    </div>
+                                    <label for="bio">{{ trans('sentences.bio_placeholder') }}</label>
+                                    <input name="bio" type="text" class="form-control" id="bio" placeholder="{{ trans('sentences.bio_placeholder') }}" value="{{ old('bio') ?? $user->student->bio ?? 'bio' }}">
                                 </div>
                             </div>
 

@@ -6,16 +6,23 @@
         <p class="card-text">{{ __('messages.we_will_send_you_a_link_to_verify_your_email') }}</p>
           <form method="post" action="{{ route('app.verify_academic_email') }}">
               @csrf
-              <label for="email">{{ __('E-Mail Address') }}</label>
+              <label for="email">{{ __('sentences.email') }}</label>
               <input id="email" type="email" placeholder="email{{ config('custom.academic_email_suffix_utec') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-              <button class="btn btn-primary mt-3" type="submit">{{ __('sentences.submit') }}</button>
+
+
+              <div class="mt-5 d-flex justify-content-end">
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    {{ __('sentences.i_do_not_have_a_academic_email') }}
+                </button>
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-primary btn-lg" type="submit">{{ __('sentences.submit') }}</button>
+              </div>
           </form>
 
           <div>
               <!-- Button trigger modal -->
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    {{ __('sentences.i_do_not_have_a_academic_email') }}
-                </button>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -20,7 +20,7 @@ return [
     'welcome_user' => 'Bienvenido',
 
     'name' => 'Nombre',
-    'email' => 'Email',
+    'email' => 'Correo electrónico',
     'password' => 'Contraseña',
     'password_confirmation' => 'Confirmar contraseña',
     'remember_me' => 'Recuérdame',
@@ -129,4 +129,5 @@ return [
     'create_account' => 'Crear cuenta',
     'login_with_linkedin' => 'Iniciar sesión con',
     'social_networks' => 'Redes sociales',
+    'submit' => 'Enviar',
 ];

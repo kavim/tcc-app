@@ -71,6 +71,10 @@ class DashboardController extends Controller
             'birth_date' => Carbon::createFromFormat('d/m/Y', $request->input('birth_date'))->format('Y-m-d')
         ]);
 
+        $student = Student::find($user->student->id);
+        $student->bio = $request->input('bio');
+        $student->save();
+
         return redirect()->back()->with('success', 'Perfil actualizado');
     }
 
@@ -150,12 +154,16 @@ class DashboardController extends Controller
     public function updateExperiences(Request $request)
     {
         $validated = $request->validate([
-            'experiences' => 'required|max:9999',
+            'experiences' => 'required|max:999999',
         ]);
 
         $user = Auth::user();
 
-        $user->student->update($validated);
+        $user->student->update(
+            [
+                'experiences' => $validated['experiences']
+            ]
+        );
 
         return redirect()->back()->with('success', 'Resumo atualizado com sucesso');
     }
