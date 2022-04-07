@@ -53,9 +53,10 @@ class SocialiteLoginController extends Controller
      */
     public function findOrCreateUser($user, $provider)
     {
-        $authUser = User::where('provider_id', $user->id)->first();
+        $authUser = User::where('provider_id', $user->id)->orWhere('email', $user->email)->first();
 
         if ($authUser) {
+
             return $authUser;
         }
 
@@ -83,8 +84,8 @@ class SocialiteLoginController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
             // something went wrong
-
-            return redirect()->route('app.error');
+            dd($e);
+            // return redirect()->route('app.error');
         }
     }
 }

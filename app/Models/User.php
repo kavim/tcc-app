@@ -28,7 +28,8 @@ class User extends Authenticatable
         'slug_name',
         'email',
         'password',
-        'user_type_id'
+        'user_type_id',
+        'block',
     ];
 
     /**

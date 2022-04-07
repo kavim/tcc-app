@@ -31,6 +31,7 @@ class PostController extends Controller
             'description' => 'required|max:255',
             'body' => 'required|max:99999',
             'user_id' => 'required|integer',
+            'course_id' => 'required|integer',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -40,7 +41,7 @@ class PostController extends Controller
             'description' => $request->input('description'),
             'body' => $request->input('body'),
             'user_id' => $request->input('user_id'),
-            'featured_image' => $request->input('image'),
+            'course_id' => $request->input('course_id'),
             'active' => (bool)$request->input('active'),
             'published' => (bool)$request->input('published'),
             'category_id' => 1,
@@ -68,8 +69,9 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $cover = $post->getFeaturedImage();
         $companies = \App\Models\Company::get();
+        $courses = \App\Models\Course::get();
 
-        return view('admin.posts.edit', compact('post', 'cover', 'companies'));
+        return view('admin.posts.edit', compact('post', 'cover', 'companies', 'courses'));
     }
 
     public function update(Request $request, $id): \Illuminate\Http\RedirectResponse
@@ -82,6 +84,7 @@ class PostController extends Controller
             'description' => 'required|max:255',
             'body' => 'required|max:99999',
             'user_id' => 'required|integer',
+            'course_id' => 'required|integer',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -91,7 +94,7 @@ class PostController extends Controller
             'description' => $request->input('description'),
             'body' => $request->input('body'),
             'user_id' => $request->input('user_id'),
-            'featured_image' => $request->input('image'),
+            'course_id' => $request->input('course_id'),
             'active' => (bool)$request->input('active'),
             'published' => (bool)$request->input('published'),
         ]);

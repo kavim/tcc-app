@@ -6,11 +6,27 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">{{ $user->name }} # {{ $user->id }}</h1>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon-split mt-3">
+                <a href="{{ route('admin.users.verify', $user->id) }}" class="btn btn-success btn-icon-split mt-3 mr-3">
                     <span class="icon text-white-50">
-                        <i class="fas fa-pen"></i>
+                        <i class="fa-solid fa-check"></i>
                     </span>
-                    <span class="text">Edit</span>
+                    <span class="text">{{ __('sentences.verify_student_academic_email') }}</span>
+                </a>
+
+                <a href="{{ route('admin.users.block', $user->id) }}" class="btn @if($user->block) btn-success @else btn-danger @endif btn-icon-split mt-3">
+
+                    @if($user->block)
+                    <span class="icon text-white-50">
+                        <i class="fa-solid fa-unlock"></i>
+                    </span>
+                    <span class="text">{{ __('sentences.unblock_user') }}</span>
+                    @else
+                    <span class="icon text-white-50">
+                        <i class="fa-solid fa-user-lock"></i>
+                    </span>
+                    <span class="text">{{ __('sentences.block_user') }}</span>
+                    @endif
+
                 </a>
             </div>
         </div>
@@ -72,11 +88,11 @@
                                     <td>{{ $user->student->phone }}</td>
                                 </tr>
                                 <tr>
-                                    <td>academic_institution_email</td>
+                                    <td>{{ __('sentences.academic_institution_email') }}</td>
                                     <td>{{ $user->student->academic_institution_email }}</td>
                                 </tr>
                                 <tr>
-                                    <td>is_academic_institution_email_verified</td>
+                                    <td>{{ __('sentences.is_academic_institution_email_verified') }}</td>
                                     <td>
                                         @if($user->student->is_academic_institution_email_verified)
                                             ativo

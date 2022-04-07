@@ -130,7 +130,7 @@ class DashboardController extends Controller
     public function updateResume(Request $request)
     {
         $validated = $request->validate([
-            'resume' => 'required|max:9999',
+            'resume' => 'required|max:9999969',
         ]);
 
         $user = Auth::user();
@@ -296,15 +296,6 @@ class DashboardController extends Controller
     public function updateSocialNetworks(Request $request)
     {
         $user = Auth::user();
-
-        // $data [
-        //     "website" => $request->input('social_networks')['website'] ?? "",
-        //     "github" => $request->input('social_networks')['github'] ?? ""
-        //     "linkedin" => $request->input('social_networks')['linkedin'] ?? ""
-        //     "facebook" => $request->input('social_networks')['facebook'] ?? ""
-        //     "twitter" => $request->input('social_networks')['twitter'] ?? ""
-        //     "instagram" => $request->input('social_networks')['instagram'] ?? ""
-        // ];
 
         $user->student->update(
             ['social_networks' => $request->input('social_networks')]

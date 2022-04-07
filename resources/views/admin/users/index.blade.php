@@ -49,9 +49,9 @@
                             <td>{{ $user->getUserTypeName() }}</td>
                             <td>
                                 <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary m-1"><i
-                                        class="fas fa-eye"></i></a>
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning m-1"><i
                                         class="fas fa-edit"></i></a>
+                                {{-- <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning m-1"><i
+                                        class="fas fa-edit"></i></a> --}}
                             </td>
                         </tr>
                     @endforeach

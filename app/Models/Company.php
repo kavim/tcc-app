@@ -39,7 +39,7 @@ class Company extends Model
     // FUNCTIONS
     public function getAvatar(): string
     {
-        return $this->avatar ? ImageHelper::checkIfIsALink($this->avatar) : asset('images/default-male-avatart.png');
+        return $this->avatar ? ImageHelper::checkIfIsALink($this->avatar) : asset('images/default-img.jpg');
     }
 
     public function getCover(): string

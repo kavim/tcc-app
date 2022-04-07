@@ -54,10 +54,10 @@
 <hr>
 <div class="form-group">
     <label for="company_id"></label>
-    <select class="form-control" id="company_id" name="user_id">
-        <option value="">Select a company</option>
+    <select class="form-control" id="course_id" name="course_id">
+        <option value="">Select a course</option>
             @foreach ($courses as $course)
-                <option @if(isset($post) && $course->id == $post->course->id) selected @endif value="{{ $course->id }}">{{ $course->name }}</option>
+                <option @if(isset($post) && $course->id == $post->course_id) selected @endif value="{{ $course->id }}">{{ $course->name }}</option>
             @endforeach
         </select>
 </div>

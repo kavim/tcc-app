@@ -20,7 +20,7 @@ class CompanyRegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/company/home';
+    protected $redirectTo = '/company';
 
     /**
      * Create a new controller instance.

@@ -23,7 +23,9 @@ class Post extends Model
         'active',
         'published',
         'order',
-        'featured_image'
+        'featured_image',
+        'course_id'
+
     ];
 
     public function getFeaturedImage(): string

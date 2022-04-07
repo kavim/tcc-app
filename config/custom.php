@@ -31,12 +31,12 @@ return [
     ],
     // social icons
     'social_networks_icons' => [
-        'website' => '<i class="fab fa-weixin"></i>',
-        'github' => '<i class="fab fa-github"></i>',
-        'linkedin' => '<i class="fab fa-linkedin"></i>',
-        'facebook' => '<i class="fab fa-facebook-f"></i>',
-        'twitter' => '<i class="fab fa-twitter"></i>',
-        'instagram' => '<i class="fab fa-instagram"></i>',
+        'website' => '<i class="bi bi-braces"></i>',
+        'github' => '<i class="bi bi-github"></i>',
+        'linkedin' => '<i class="bi bi-linkedin"></i>',
+        'facebook' => '<i class="bi bi-facebook"></i>',
+        'twitter' => '<i class="bi bi-twitter"></i>',
+        'instagram' => '<i class="bi bi-instagram"></i>',
     ],
 
     'tipo_estudante' => 4,

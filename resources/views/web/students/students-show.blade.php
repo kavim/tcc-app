@@ -15,8 +15,8 @@
             <div class="col-12 my-3">
                 <div class="row">
                     <div class="col-6 d-flex justify-content-around">
-                        @foreach ($user->student->social_networks as $key => $item)
-                            <a href="{{ $item }}"> {!! config('custom.social_networks_icons')[$key] !!}</a>
+                        @foreach ($social_networks as $key => $item)
+                            <a target="_blank" href="{{ $item }}"> {!! config('custom.social_networks_icons')[$key] !!}</a>
                         @endforeach
                     </div>
                     <div class="col-6 d-flex justify-content-end align-items-center">

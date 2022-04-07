@@ -11,10 +11,20 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-body p-2">
-                        <form action="{{ route('admin.companies.store') }}" method="POST">
+                        <form action="{{ route('admin.companies.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             @include('admin.companies._form')
+                            @include('admin.companies._form-admin')
+
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <button class="btn btn-primary" type="submit">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>

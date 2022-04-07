@@ -103,9 +103,25 @@ return [
     'show_jobs' => 'Mostrar trabajos',
     'create_job' => 'Crear trabajo',
     'creat_company' => 'Crear empresa',
-
     'open_to_work' => 'Buscando laburo',
     'status' => 'Status',
+    'unblock_user' => 'Desbloquear usuario',
+    'block_user' => 'Bloquear usuario',
+    'verify_student_academic_email' => 'Verificar email académico',
+    'is_academic_institution_email_verified' => '¿El email académico está verificado?',
+    'verify_company'    => 'Verificar empresa',
+    'unverify_company'  => 'Desverificar empresa',
+    'company' => [
+        'resume' => 'Resumen',
+        'user_data' => 'Datos del usuario',
+        'name' => 'Nombre',
+        'email' => 'Email',
+        'bio' => 'Area de atuación',
+        'company_name' => 'Nombre de la empresa',
+        'company_email' => 'Email de la empresa',
+        'phone' => 'Teléfono',
+        'website' => 'Página web',
+    ],
 
     //login
 

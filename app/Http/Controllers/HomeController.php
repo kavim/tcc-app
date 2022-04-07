@@ -27,7 +27,10 @@ class HomeController extends Controller
     {
         $user = \App\Models\User::where('slug_name', $slug_name)->first();
 
-        return view('web.students.students-show', compact('user'));
+        $social_networks = $user->student->social_networks;
+        // $social_networks = array_merge(config('custom.social_networks'), $social_networks ?? []);
+
+        return view('web.students.students-show', compact('user', 'social_networks'));
     }
 
     public function for_companies()

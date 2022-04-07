@@ -42,18 +42,27 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User updated successfully');
     }
 
-    public function block($id): RedirectResponse
-    {
-        $user = User::findOrFail($id);
-        $user->update(['block' => true]);
-        return redirect()->route('admin.users.index')->with('success', 'User blocked successfully');
-    }
+    // public function block($id): RedirectResponse
+    // {
+    //     $user = User::findOrFail($id);
+    //     $user->update(['block' => true]);
+    //     return redirect()->route('admin.users.index')->with('success', 'User blocked successfully');
+    // }
 
     public function verifyStudent($id): RedirectResponse
     {
         $student = Student::where('user_id', $id)->firstOrFail();
         $student->update(['is_academic_institution_email_verified' => true]);
 
-        return redirect()->route('admin.users.index')->with('success', 'User verified successfully');
+        return redirect()->back()->with('success', 'User verified successfully');
+    }
+
+    public function blockStudent($id): RedirectResponse
+    {
+        $user = User::findOrFail($id);
+        $user->update(['block' => $user->block ? false : true]);
+
+        $message = $user->block ? 'User blocked successfully' : 'User unblocked successfully';
+        return redirect()->back()->with('success', $message);
     }
 }
