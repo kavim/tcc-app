@@ -46,5 +46,8 @@ class LoginController extends Controller
         if (auth()->user()->user_type_id == 3) {
             return RouteServiceProvider::HOME_COMPANY;
         }
+        if (auth()->user()->user_type_id == 4) {
+            return 'dashboard';
+        }
     }
 }

@@ -282,4 +282,35 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'Status atualizado com sucesso');
     }
 
+
+    public function editSocialNetworks()
+    {
+        $user = Auth::user();
+        $social_networks = $user->student->social_networks;
+
+        $social_networks = array_merge(config('custom.social_networks'), $social_networks ?? []);
+
+        return view('app.social_networks', compact('user', 'social_networks'));
+    }
+
+    public function updateSocialNetworks(Request $request)
+    {
+        $user = Auth::user();
+
+        // $data [
+        //     "website" => $request->input('social_networks')['website'] ?? "",
+        //     "github" => $request->input('social_networks')['github'] ?? ""
+        //     "linkedin" => $request->input('social_networks')['linkedin'] ?? ""
+        //     "facebook" => $request->input('social_networks')['facebook'] ?? ""
+        //     "twitter" => $request->input('social_networks')['twitter'] ?? ""
+        //     "instagram" => $request->input('social_networks')['instagram'] ?? ""
+        // ];
+
+        $user->student->update(
+            ['social_networks' => $request->input('social_networks')]
+        );
+
+        return redirect()->back()->with('success', 'Redes sociais atualizadas com sucesso');
+    }
+
 }

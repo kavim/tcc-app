@@ -9,5 +9,6 @@
     <a href="{{ route('app.profile.edit.resume') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.resume')) active @endif">{{ trans('sentences.resume') }}</a>
     <a href="{{ route('app.profile.edit.experiences') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.experiences')) active @endif">{{ trans('sentences.experiences') }}</a>
     <a href="{{ route('app.profile.edit.course') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.course')) active @endif">{{ trans('sentences.course') }}</a>
+    <a href="{{ route('app.profile.edit.social_networks') }}" class="list-group-item list-group-item-action @if(Route::is('app.profile.edit.social_networks')) active @endif">{{ trans('sentences.social_networks') }}</a>
     {{-- <a class="list-group-item list-group-item-action disabled">A disabled link item</a> --}}
 </div>
