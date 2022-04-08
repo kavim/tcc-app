@@ -43,7 +43,7 @@ class CompanyController extends Controller
 
         $data = $request->all();
 
-        $company = $company->update([
+        $company->update([
             'slug' => \Str::slug($data['company_name']),
             'email' => $data['company_email'],
             'name' => $data['company_name'],
@@ -112,6 +112,7 @@ class CompanyController extends Controller
             'slug' => \Str::slug($data['title']),
             'description' => $data['description'],
             'category_id' => 1,
+            'published' => $request->input('published') ? true : false,
         ]);
 
         if ($request->hasFile('image')) {
@@ -119,7 +120,7 @@ class CompanyController extends Controller
 
             $img = $post->update(['featured_image' => $src]);
 
-            $image = Image::make(storage_path("app/public/" . $src))->fit(300, 300)->save();
+            $image = Image::make(storage_path("app/public/" . $src))->fit(1200, 720)->save();
             $image->save();
         }
 
@@ -132,7 +133,6 @@ class CompanyController extends Controller
             'title' => 'required|max:150',
             'body' => 'required|max:9999',
             'course_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'required|max:255',
         ]);
 
@@ -150,6 +150,7 @@ class CompanyController extends Controller
             'course_id' => $data['course_id'],
             'slug' => \Str::slug($data['title']),
             'description' => $data['description'],
+            'published' => $request->input('published') ? true : false,
         ]);
 
         if ($request->hasFile('image')) {
@@ -157,7 +158,7 @@ class CompanyController extends Controller
 
             $img = $post->update(['featured_image' => $src]);
 
-            $image = Image::make(storage_path("app/public/" . $src))->fit(300, 300)->save();
+            $image = Image::make(storage_path("app/public/" . $src))->fit(1200, 720)->save();
             $image->save();
         }
 

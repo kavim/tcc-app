@@ -135,25 +135,10 @@
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
-
-                                    {{-- <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Nome do responsavel</label>
-                                        <input name="name" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="nameHelp" placeholder="{{ trans('sentences.name') }}"s value="{{ old('name') }}">
-                                        <div id="nameHelp" class="form-text">{{ trans('sentences.not_share_company_email') }}</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email do responsavel</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ trans('sentences.email') }}" value="{{ old('email') }}">
-                                        <div name="email" id="emailHelp" class="form-text">{{ trans('sentences.not_share_company_email') }}</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ trans('sentences.password') }}">
-                                    </div> --}}
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ __('sentences.submit') }}</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -166,7 +151,7 @@
 
                                     <div class="row mb-3">
                                         <label for="email"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
+                                            class="col-md-4 col-form-label text-md-end">{{ __('sentences.email') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -182,7 +167,7 @@
 
                                     <div class="row mb-3">
                                         <label for="password"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                            class="col-md-4 col-form-label text-md-end">{{ __('sentences.password') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="password" type="password"

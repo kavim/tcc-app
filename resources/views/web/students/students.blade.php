@@ -22,6 +22,11 @@
                     <i class="bi bi-funnel"></i> Filtro
                 </button>
 
+                @if(isset($course_id) || isset($search_string))
+                <a class="btn btn-outline-primary" href="{{ route('students') }}"> <i class="bi bi-x-circle"></i> {{ __('sentences.clear') }}</a>
+
+                @endif
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -30,19 +35,29 @@
                         <h5 class="modal-title" id="exampleModalLabel">Aplicar Filtro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <div class="input-group mb-3">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Selecione um Curso</button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                </ul>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <form action="{{ route('students') }}">
+                            <div class="modal-body">
+                                <div class="input-group mb-3">
+
+                                        <select  class="form-control" name="course_id" id="course_id">
+                                            <option value="">{{ __('sentences.select_course') }}</option>
+                                            @foreach ($courses as $course)
+                                                <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <input name="search_string" type="text" class="form-control" placeholder="Pesquisar por usuario">
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Pesquisar</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            </div>
+                        </form>
                     </div>
                     </div>
                 </div>

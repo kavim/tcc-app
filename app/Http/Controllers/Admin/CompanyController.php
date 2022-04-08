@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Company;
 use Illuminate\Http\Request;
@@ -153,7 +154,7 @@ class CompanyController extends Controller
 
         $data = $request->all();
 
-        $company = $company->update([
+        $company->update([
             'email' => $data['company_email'],
             'name' => $data['company_name'],
             'slug' => \Str::slug($data['company_name']),
@@ -184,7 +185,19 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = Company::findOrFail($id);
+        $company->delete();
+
+        $user = User::findOrFail($company->user_id);
+        $user->update(['block' => true]);
+
+        $posts = Post::where('user_id', $company->user_id)->get();
+
+        foreach ($posts as $post) {
+            $post->delete();
+        }
+
+        return redirect()->route('admin.companies.index')->with('success', 'Empresa excluída com sucesso');
     }
 
     public function verifyCompany($id)

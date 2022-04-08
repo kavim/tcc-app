@@ -133,4 +133,9 @@ return [
     'submit' => 'Enviar',
     'visibilty' => 'Visibilidad',
     'publish' => 'Publicar',
+
+    'clear' => 'Limpiar el filtro',
+    'select_course' => 'Seleccione un curso',
+    'no_jobs_found' => 'No se encontraron trabajos',
+    'editcompany' => 'Editar empresa',
 ];

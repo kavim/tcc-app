@@ -31,9 +31,11 @@ Route::post('/companies/update/{id}', [CompanyController::class, 'update'])->nam
 Route::get('/companies/create', [CompanyController::class, 'create'])->name('admin.companies.create');
 Route::post('/companies/store', [CompanyController::class, 'store'])->name('admin.companies.store');
 Route::get('/companies/verify/{id}', [CompanyController::class, 'verifyCompany'])->name('admin.companies.verify');
+Route::get('/companies/destroy/{id}', [CompanyController::class, 'destroy'])->name('admin.companies.destroy');
 
 //posts
 Route::get('/posts', [PostController::class, 'index'])->name('admin.posts.index');
+Route::get('/posts/destroy{id}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
 Route::post('/posts/update/{id}', [PostController::class, 'update'])->name('admin.posts.update');
 Route::get('/posts/create', [PostController::class, 'create'])->name('admin.posts.create');

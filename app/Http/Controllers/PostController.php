@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,11 +13,28 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::get();
+        $course_id = $request->input('course_id');
+        $courses = Course::get();
 
-        return view('web.posts.index', compact('posts'));
+        $posts = Post::with('user')
+            ->whereHas('user', function ($query) {
+                return $query->where('block', false);
+            })
+            ->whereHas('user', function ($query) {
+                return $query->whereHas('company', function ($query) {
+                    return $query->where('verified', true);
+                });
+            })
+            ->where('published', true)
+            ->when($course_id, function ($query, $course_id) {
+                return $query->where('course_id', $course_id);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('web.posts.index', compact('posts', 'course_id', 'courses'));
     }
 
     /**

@@ -130,4 +130,10 @@ return [
     'login_with_linkedin' => 'Entrar com',
     'social_networks' => 'Redes sociais',
     'submit' => 'Enviar',
+
+
+    'clear' => 'Limpar filtro',
+    'select_course' => 'Selecione o curso',
+    'no_jobs_found' => 'Nenhuma vaga encontrada',
+    'editcompany' => 'Editar empresa',
 ];

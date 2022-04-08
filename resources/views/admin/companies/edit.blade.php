@@ -4,7 +4,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{__('admin.create_new_company')}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">{{__('sentences.editcompany')}}</h1>
             <div class="btn-group" role="group" aria-label="Basic example">
                 <a href="{{ route('admin.companies.verify', $company->id) }}" class="btn @if($company->verified) btn-danger @else btn-success @endif btn-icon-split mt-3">
 

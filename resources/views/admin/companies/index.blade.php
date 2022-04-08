@@ -3,8 +3,8 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ __('admin.companies') }}</h1>
-        <a href="{{ route('admin.companies.create') }}" class="btn btn-success btn-lg shadow-sm"><i
-                class="fas fa-plus fa-sm"></i></a>
+        {{-- <a href="{{ route('admin.companies.create') }}" class="btn btn-success btn-lg shadow-sm"><i
+                class="fas fa-plus fa-sm"></i></a> --}}
     </div>
 
     @if(Session::has('msg'))
@@ -53,8 +53,9 @@
                             <td>
                                {{-- <a href="{{ route('admin.companies.show', $company->id) }}" class="btn btn-primary m-1"><i
                                        class="fas fa-eye"></i></a> --}}
-                               <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-default m-1"><i
+                                <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-default m-1"><i
                                         class="fas fa-edit"></i></a>
+                                <a onclick="confirm('Deletar??');" href="{{ route('admin.companies.destroy', $company->id) }}" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

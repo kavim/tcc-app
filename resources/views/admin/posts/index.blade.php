@@ -45,7 +45,7 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach ($posts as $post)
+                    @forelse ($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td><img src="{{ $post->getFeaturedImage() }}" width="60"></td>
@@ -55,9 +55,14 @@
                                 <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-default m-1">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                                <a onclick="confirm('Deletar??');" href="{{ route('admin.posts.destroy', $post->id) }}" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="5">Nenhum registro encontrado!</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

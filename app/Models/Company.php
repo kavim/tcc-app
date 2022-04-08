@@ -4,12 +4,14 @@ namespace App\Models;
 
 use App\Helpers\ImageHelper;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Company extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -50,5 +52,10 @@ class Company extends Model
     public function isVerified(): string
     {
         return $this->verified ? 'Verificado' : 'No verificado';
+    }
+
+    public function checkVerified()
+    {
+        return $this->verified ? true : false;
     }
 }
