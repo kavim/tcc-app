@@ -45,7 +45,12 @@ class DashboardController extends Controller
                 Rule::unique('users')->ignore(Auth::user()->id),
             ],
             'bio' => 'required|max:255',
-            'enrollment' => 'required',
+            // 'enrollment' => 'required|max:255|unique:students,enrollment,' . Auth::user()->student->id,
+            'enrollment' => [
+                'required',
+                'max:150',
+                Rule::unique('students')->ignore(Auth::user()->student->id),
+            ],
             'phone' => 'required',
             'document' => 'required',
             'birth_date' => 'date_format:d/m/Y|before:today|nullable',
