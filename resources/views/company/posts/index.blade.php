@@ -7,7 +7,7 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ __('admin.companies') }}</h1>
-        <a href="{{ route('admin.companies.create') }}" class="btn btn-success btn-lg shadow-sm"><i
+        <a href="{{ route('company.posts.create') }}" class="btn btn-success btn-lg shadow-sm"><i
                 class="fas fa-plus fa-sm"></i></a>
     </div>
 
@@ -30,9 +30,8 @@
                     <tr>
                         <th>id</th>
                         <th>logo</th>
-                        <th>name</th>
-                        <th>email</th>
-                        <th>verified</th>
+                        <th>title</th>
+                        <th>description</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -40,25 +39,22 @@
                     <tr>
                         <th>id</th>
                         <th>logo</th>
-                        <th>name</th>
-                        <th>email</th>
-                        <th>verified</th>
+                        <th>title</th>
+                        <th>description</th>
                         <th>Ações</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @foreach ($posts as $post)
                         <tr>
-                            <td>{{ $company->id }}</td>
-                            <td><img src="{{ $company->getAvatar() }}" alt="{{ $company->getAvatar() }}" width="60"></td>
-                            <td>{{ $company->name }}</td>
-                            <td>{{ $company->email }}</td>
-                            <td>{{ $company->isVerified() }}</td>
+                            <td>{{ $post->id }}</td>
+                            <td><img src="{{ $post->getFeaturedImage() }}" width="60"></td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->description }}</td>
                             <td>
-{{--                                <a href="{{ route('admin.companies.show', $company->id) }}" class="btn btn-primary m-1"><i--}}
-{{--                                        class="fas fa-eye"></i></a>--}}
-{{--                                <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-warning m-1"><i--}}
-{{--                                        class="fas fa-edit"></i></a>--}}
+                                <a href="{{ route('company.posts.edit', $post->id) }}" class="btn btn-default m-1">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

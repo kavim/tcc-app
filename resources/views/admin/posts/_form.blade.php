@@ -1,7 +1,24 @@
+
+<div class="form-row">
+    <strong>{{ __('sentences.visibilty') }}: &nbsp;&nbsp;</strong>
+    <div class="col-6">
+        <div class="custom-control custom-checkbox">
+            <input name="published" type="checkbox" class="custom-control-input" id="customCheck1"
+            @if(isset($post->published))
+                {{ old('published') == 'on' || $post->published == 1 ? 'checked' : '' }}
+            @else
+                {{ old('published') == 'on' ? 'checked' : '' }}
+            @endif>
+            <label class="custom-control-label" for="customCheck1">{{ __('sentences.publish') }}</label>
+        </div>
+    </div>
+</div>
+<hr>
+
 <div class="form-row">
     <strong>Featured image</strong>
     <hr>
-    <div class="col-12 p-0 thecontainer text-center">
+    <div class="col-6 p-0 thecontainer text-center">
         <div class="tag">
             <label for="file-upload" class="btn btn-success mt-2">
                 <i class="fas fa-edit"></i>Alterar
@@ -9,6 +26,17 @@
             <input id="file-upload" type="file" name="image" accept="image/jpeg, image/jpg, image/png"/>
         </div>
         <img id="preview-image" src="{{ $cover ?? '' }}" width="400">
+    </div>
+    <div class="col-6">
+        <div class="custom-control custom-checkbox">
+            <input name="published" type="checkbox" class="custom-control-input" id="customCheck1"
+            @if(isset($post->published))
+                {{ old('published') == 'on' || $post->published == 1 ? 'checked' : '' }}
+            @else
+                {{ old('published') == 'on' ? 'checked' : '' }}
+            @endif>
+            <label class="custom-control-label" for="customCheck1">published</label>
+        </div>
     </div>
 </div>
 

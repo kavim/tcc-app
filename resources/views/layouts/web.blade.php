@@ -15,17 +15,17 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Probi, find the jobs">
-    <meta name="author" content="Kevin">
+    <meta name="description" content="Probi, Profesional binacional">
+    <meta name="author" content="Kevin MM">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-    <meta property="og:site_name" content="" /> <!-- website name -->
-    <meta property="og:site" content="" /> <!-- website link -->
-    <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Probi" /> <!-- website name -->
+    <meta property="og:site" content="probi.site" /> <!-- website link -->
+    <meta property="og:title" content="Probi" /> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="Probi, Profesional binacional" /> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="http://probi.site/images/logo123.png" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="http://probi.site" /> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="landingpage" />
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"

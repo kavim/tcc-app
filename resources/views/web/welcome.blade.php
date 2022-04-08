@@ -11,7 +11,7 @@
             </div>
             <div class="col-12 col-md-5 d-flex align-items-center">
                 <div class="text-left">
-                    <h2 class="section-heading text-uppercase">Sobre Probi</h2>
+                    <h2 class="section-heading text-uppercase">{{ __('sentences.about_us') }}</h2>
                     <h3 class="section-subheading text-muted">
                         {{ trans('sentences.home_header_text') }}
                         <br>

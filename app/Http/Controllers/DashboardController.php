@@ -61,6 +61,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $user->update([
             'name' => $request->input('name'),
+            'slug' => Str::slug($request->input('name')),
             'email' => $request->input('email'),
         ]);
         $user->student()->update([

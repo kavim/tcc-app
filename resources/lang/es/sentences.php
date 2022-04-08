@@ -3,19 +3,20 @@
 return [
     //pages
     'app_name' => 'PROBI',
+    'app_full_name' => 'Profesional Binacional',
     'welcome' => 'Bienvenido a probi!',
     'for_companies' => 'Para empresas',
     'home_header_title' => 'Bienvenido a',
     'home_header_subtitle' => '¡Regístrate y empieza a aplicar!',
     'home_header_button' => 'Regístrate',
-    'home_header_text' => '¡Encontre excelentes oportunidades y los mejores profisionales de la frontera Rivera/Livramente!',
+    'home_header_text' => 'Encuentre excelentes oportunidades y los mejores profesionales de la frontera Rivera / Santana do Livramento!',
     'home_project_description' => 'Una plataforma WEB para facilitar la difusión de pasantías y vacantes laborales, posibilitando la comunicación entre los tres actores que cubre este proyecto, a saber: estudiantes y egresados, instituciones educativas y empresas contratistas, posibilitando posteriormente el control cuantitativo y cualitativo relativo al desempeño de estudiantes y egresados. de los cursos de educación superior binacionales IFSUL y UTEC.',
-
+    'about_us' => 'Acerca de Probi',
     'home_project_objective_title' => 'Objetivo del proyecto',
     'home_project_objective_description' => 'El objetivo es brindar una aplicación web en la que estudiantes y egresados ​​puedan unirse y compartir su formación e intereses en el mercado laboral, acercando instituciones educativas y egresados ​​a las empresas.',
 
-    'for_education_institutions' => 'Para instituições de ensino',
-
+    'for_education_institutions' => 'Para instituciones de enseñanza',
+    'estudents' => 'Estudantes',
 
     'welcome_user' => 'Bienvenido',
 
@@ -121,6 +122,7 @@ return [
         'company_email' => 'Email de la empresa',
         'phone' => 'Teléfono',
         'website' => 'Página web',
+        'create_new_post' => 'Crear nuevo post',
     ],
 
     //login
@@ -129,4 +131,6 @@ return [
     'login_with_linkedin' => 'Iniciar sesión con',
     'social_networks' => 'Redes sociales',
     'submit' => 'Enviar',
+    'visibilty' => 'Visibilidad',
+    'publish' => 'Publicar',
 ];

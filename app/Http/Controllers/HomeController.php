@@ -18,7 +18,13 @@ class HomeController extends Controller
 
     public function students()
     {
-        $students = \App\Models\User::where('user_type_id', config('custom.tipo_estudante'))->where('block', false)->inRandomOrder()->get();
+        $students = \App\Models\User::with('student')->where('user_type_id', config('custom.tipo_estudante'))
+        ->where('block', false)
+        ->whereHas('student', function ($query) {
+            $query->where('is_academic_institution_email_verified', true);
+        })
+        ->inRandomOrder()
+        ->get();
 
         return view('web.students.students', compact('students'));
     }

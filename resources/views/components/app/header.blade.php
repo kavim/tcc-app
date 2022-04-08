@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="masthead-subheading">Proficional Binacional</div>
+                <div class="masthead-subheading">{{ __('sentences.app_full_name') }}</div>
                 <div class="masthead-heading text-uppercase">{{ trans('sentences.welcome') }}</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="{{ route('register') }}">{{ trans('sentences.home_header_subtitle') }}</a>
             </div>

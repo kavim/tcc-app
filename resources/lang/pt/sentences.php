@@ -3,7 +3,8 @@
 return [
     //pages
     'app_name' => 'PROBI',
-    'welcome' => 'Bem vindo a o probi!',
+    'app_full_name' => 'Profissional Binacional',
+    'welcome' => 'Bem vindo ao probi!',
     'for_companies' => 'Para empresas',
     'home_header_title' => 'Bem vindo',
     'home_header_subtitle' => 'Inscreva-se e comece a aplicar!',
@@ -14,7 +15,8 @@ return [
     'home_project_objective_title' => 'Objetivo do projeto',
     'home_project_objective_description' => 'Tens-se como objetivo brindar uma aplicação web em que os alunos e egressos possam ingressar e compartilhar sua formação e interesses no mercado de trabalho, aproximando as instituições de ensino e egressos a empresas.',
 
-    'for_education_institutions' => 'Para instituciones educativas',
+    'for_education_institutions' => 'Para instituições de ensino',
+    'estudents' => 'Estudantes',
 
 
     'welcome_user' => 'Bem vindo',
