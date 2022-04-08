@@ -20,7 +20,7 @@ use App\Http\Controllers\SocialiteLoginController;
 |
 */
 
-Route::get('/', [HomeController::class, 'welcome']);
+Route::get('/', [HomeController::class, 'welcome'])->name('home');
 // auth do laravel
 Auth::routes();
 //rotas para autenticação com linkedin
@@ -39,7 +39,7 @@ Route::get('/post/{id}', [PostController::class, 'show'])->name('posts.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('app.dashboard');
-    Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    Route::get('/home', [DashboardController::class, 'index']);
     Route::prefix('profile')->group(function () {
         Route::get('/edit', [DashboardController::class, 'editProfile'])->name('app.profile.edit');
         Route::post('/update', [DashboardController::class, 'updateProfile'])->name('app.profile.update');
