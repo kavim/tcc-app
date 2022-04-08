@@ -2,9 +2,9 @@
 @section('content')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('admin.users') }}</h1>
-        <a href="{{ route('admin.users.create') }}" class="btn btn-success btn-lg shadow-sm"><i
-                class="fas fa-plus fa-sm"></i></a>
+        <h1 class="h3 mb-0 text-gray-800">{{ __('sentences.admin_users') }}</h1>
+        {{-- <a href="{{ route('admin.users.create') }}" class="btn btn-success btn-lg shadow-sm"><i
+                class="fas fa-plus fa-sm"></i></a> --}}
     </div>
 
     @if(Session::has('msg'))

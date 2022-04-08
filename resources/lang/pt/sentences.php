@@ -136,4 +136,5 @@ return [
     'select_course' => 'Selecione o curso',
     'no_jobs_found' => 'Nenhuma vaga encontrada',
     'editcompany' => 'Editar empresa',
+    'admin_users' => 'Gerenciar usuários',
 ];
