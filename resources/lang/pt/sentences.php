@@ -11,7 +11,7 @@ return [
     'home_header_button' => 'cadastre-se',
     'home_header_text' => 'Encontre excelentes oportunidades e os melhores profissionais na divisa Livramente/Rivera!',
     'home_project_description' => 'Uma plataforma WEB para facilitar a divulgação de estágios e vagas de emprego, viabilizando a comunicação entre os três atores que o presente projeto abrange, sendo eles: alunos e egressos, as instituições de ensino e empresas contratantes, possibilitando subsequentemente um controle quantitativo e qualitativo relativo ao desempenho dos alunos e egressos dos cursos binacionais superiores do IFSUL e da UTEC.',
-
+    'about_us' => 'Acerca de Probi',
     'home_project_objective_title' => 'Objetivo do projeto',
     'home_project_objective_description' => 'Tens-se como objetivo brindar uma aplicação web em que os alunos e egressos possam ingressar e compartilhar sua formação e interesses no mercado de trabalho, aproximando as instituições de ensino e egressos a empresas.',
 

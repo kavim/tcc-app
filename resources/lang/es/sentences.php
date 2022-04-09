@@ -16,7 +16,7 @@ return [
     'home_project_objective_description' => 'El objetivo es brindar una aplicación web en la que estudiantes y egresados ​​puedan unirse y compartir su formación e intereses en el mercado laboral, acercando instituciones educativas y egresados ​​a las empresas.',
 
     'for_education_institutions' => 'Para instituciones de enseñanza',
-    'estudents' => 'Estudantes',
+    'estudents' => 'Estudiantes',
 
     'welcome_user' => 'Bienvenido',
 
@@ -61,7 +61,7 @@ return [
     'select_a_country' => 'Seleccione un país',
 
     //pages
-    'staudants_page' => 'Estudantes',
+    'staudants_page' => 'Estudiantes',
     'jobs_page' => 'Trabajos',
 
     //studants sidebar
